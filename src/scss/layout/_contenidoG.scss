@@ -1,0 +1,185 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+
+.contenido{
+    background-color: aqua;
+    color: white;
+    @include m.desktop{
+        padding-left: 2rem;
+    }
+}
+// .sub-boton
+.botonesG {
+    display: grid;
+    // background-color: grey;
+    width: 30rem;
+    height: 20rem;
+    @include m.parrafobtns;
+
+     @include m.grid(2, 2.5rem);
+
+     @media (min-width: 712px) {
+         @include m.grid(2, 1rem);
+        // margin-left: 2rem;
+        @include m.parrafobtns;
+        width: 45rem;
+        height: 25rem;
+     }
+     
+     @media (min-width: 768px) {
+        @include m.grid(2, 2rem);
+        width: 35rem;
+        height: 30rem;
+     }
+
+
+     
+     @include m.desktop{
+        @include m.grid(2, 3rem);
+        color: v.$blanco;
+        // margin-left: 5rem;
+        width: 65rem;
+        height: 30rem;
+        p{
+            color: v.$blanco;
+            margin: 0;
+            font-size: 1.7rem;
+        }
+            }
+}
+// .sub-boton, .boton-volver
+.boton1, .sub-boton, .boton-volver {
+    // background-color: black;
+     width: 13rem;
+     height: 4rem;
+     font-size: 1rem;
+     text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+     border-top: 3px solid #86730b;
+     border-left: 3px  solid #86730b;
+    // COLORES PARA LOS BOTONES 
+
+        background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+       
+    
+    @media (min-width: 712px) {
+        // @include m.grid(2, 2rem);
+        width: 24rem;
+        height: 6rem;
+        font-size: 1.5rem;
+    }
+
+    
+    @media (min-width: 768px) {
+        @include m.parrafobtns;
+        text-align: center;
+        width: 18rem;
+        height: 5.5rem;
+        font-size: 1.5rem;
+        // padding: 2rem;
+     }
+
+      @include m.desktop{ // $tablet: 768px;
+     width: 28rem;
+      height: 5.5rem;
+      font-size: 1.5rem;
+      text-align: center;
+     }
+
+
+}
+
+// ESTILOS PARA LA SEGUNDA ETAPA DE BOTONES 
+// SECCION STAFF GERENCIAL
+// PROGRAMA LIDERAZO
+
+
+.programaliderazgo{
+    // forma de estilos firstphone
+    // background-color: #034859;
+    height: 17rem;
+    width: 27rem;
+    @include m.grid(2, 1rem);
+
+    @media (min-width: 712px) {
+       width: 50rem;
+       height: 25rem;
+    }
+
+    @include m.tablet{
+        @include m.grid(2, 2rem);
+        // @include m.grid(3, 2.5rem);
+    
+        height: 20rem;
+        width: 60rem;
+    }
+
+    @media (min-width: 768px) {
+       width: 30rem;
+       height: 24rem;
+    }
+
+    @include m.desktop{
+        @include m.grid(2, 2rem);
+        width: 65rem;
+    }
+}
+
+// PROGRAMA LIDERAZO
+
+.titulosprogramaL{ // estilos para el texto de la segunda seccion de btns
+    h2{
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    p{
+        color: v.$blanco;
+        font-size: 1.3rem;
+    }
+
+    @media (min-width: 712px) {
+       h2{
+        font-size: 3rem;
+        margin: 0;
+       }
+       p{
+        color: v.$blanco;
+        font-size: 1.7rem;
+        margin: 0;
+       }
+    }
+}
+
+
+
+// SEGUNDA SECCION DE BOTONES STAFF GERENCIAL 
+// PERSONALIDAD LIDERAZGO
+.personalidad{
+    
+    p, h2{
+        margin-bottom: 2rem;
+    }
+}
+
+// TERCER SECCION DE BOTONES STAFF GERENCIAL 
+// CONTENIDO DE CADA MODULO
+.modulog{
+    p, h3{
+        margin: 0;
+    }
+    h3{
+        font-size: 3rem;
+    }
+}

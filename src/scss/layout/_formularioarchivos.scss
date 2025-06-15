@@ -1,0 +1,55 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+.formularioarchivos{
+    // background-color: black;
+    width: 60rem;
+
+}
+.fieldcrear{
+    // background-color: white;
+    width: 50rem;
+    height: 30rem;
+   legend{
+    text-align: center;
+   }
+   
+}
+
+// INPUTS
+.inputcrear{
+    margin-bottom: 3rem;
+    background-color: v.$blanco;
+    color: v.$negro;
+    border: none;
+    border-bottom: solid white;
+    font-weight: 500;
+    padding: .5rem;
+    width: 25rem;
+    border-radius: 2rem;
+}
+
+// BOTON PARA crear modulo
+
+.btn-modulo{
+    width: 16rem;
+     height: 3rem;
+     font-size: 2rem;
+     text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+     border-top: 3px solid #86730b;
+     border-left: 3px  solid #86730b;
+      background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+    margin-bottom: 1.5rem;
+}
+

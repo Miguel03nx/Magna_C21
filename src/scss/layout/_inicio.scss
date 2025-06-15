@@ -1,0 +1,226 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+// logo 
+
+.logoMLider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.logoMagnaLider{ // para controlar el tamaño de la imagen
+    width: 30rem;
+    height: 20rem;
+}
+
+
+
+// enlaces
+
+.saludo-inicio{
+    background-image: url("/src/imglogin/MagnaC21-21.webp");
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // background-color: grey;
+    height: 100vh;
+    padding: 0;
+    @include m.tablet{
+        height: 108vh;
+        display: grid;
+        grid-template-columns: 35% 65%;
+    }
+}
+
+.nav{
+    // background-color: black;
+    height: 50rem;
+    width: 100%;
+    // @include m.tablet{
+    //     width: 100%;
+    // }
+    color: white;
+    
+}
+
+.navegadores{
+    // background-color: pink;
+    height: 30rem;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    // width: 100%;
+    @include m.tablet{
+        height: 50rem;
+    }
+}
+
+.nav-inicio{
+    display: flex;
+    flex-direction: column;
+    // background-color: aqua;
+    height: 25rem;
+    justify-content: space-between;
+
+    a{
+        color: v.$blanco;
+        font-weight: 600;
+        background-color: v.$enlacesinicio;
+        border-radius: 3rem;
+        padding: .5rem;
+        text-align: center;
+        &:hover { // pseudo selector 
+            color: v.$amarillo;
+            }
+    }
+
+    // align-items: center;
+    // justify-items: center;
+}
+
+// CONTENIDO DERECHO DEL SITIO INICIO
+
+.contenedor{
+    // background-color: black;
+    height: 70rem;
+    width: 100%;
+    background-image: url("/src/imglogin/fondoladrilloscanva.png");
+    // background-color: #695718;
+    height: 100vh;
+    // z-index: -4;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include m.tablet{
+        height: 108vh;
+    }
+}
+
+.logoconceptoblack{
+    // background-color: aqua;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    
+    .LCblack{
+        width: 25rem;
+        height: 15rem;
+        @include m.tablet{
+            // display: in;
+            margin-left: auto;
+            padding: 2rem;
+        }
+
+    }
+}
+
+// ESTILOS PARA EL PRIMER TITULO 
+.titulo1{
+        // background: #fdfdfd;
+        // width: 50rem;
+        text-align: center;
+        @include m.tablet{
+            text-align: start;
+        }
+        .titulo1H{ // titulo HAZ QUE VALGA LA PENA
+            // font-size: 5rem;
+            font-weight: 700;
+            // width: 20rem;
+            margin: 0;
+            
+        }
+    }
+
+// AQUI EMPIEZAN LOS ESTILOS PARA EL CONTENIDO DE PARRAFOS Y MAS 
+
+.auxcontenido{
+    width: 100%;
+    // background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50rem;
+}
+
+.contenido{
+    // background-color: #deb606;
+    background: #D9B02A;
+    background: linear-gradient(36deg, rgba(217, 176, 42, 1) 0%, rgba(218, 154, 11, 1) 39%, rgba(205, 165, 39, 1) 100%);
+    height: 40rem;
+    width: 80%;
+    border-radius: 0 0 10rem 0; /* Redondea solo la esquina superior izquierda */
+    opacity: .9;
+    .tulider{
+        display: flex;
+        text-align: center;
+        padding: 1.5rem;
+        padding-bottom: 0;
+        gap: 3rem;
+        color: v.$blanco;
+        p{
+            color: v.$blanco;
+            margin: 0;
+            font-size: 1.3rem;
+
+            
+            @include m.tablet{
+                font-size: 1.8rem;
+            }
+            @include m.desktop{
+                font-size: 2.3rem;
+            }
+        }
+    }
+}
+
+.segundoparrafo{
+    display: flex;
+    padding: 1.5rem;
+    padding-top: 0;
+    gap: 1rem;
+
+    @include m.tablet{
+        gap: 3rem;
+    }
+
+    .subsegundo1{
+        p{
+            color: white;
+            font-size: .9rem;
+
+            @include m.tablet{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+
+            @include m.desktop{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .subsegundo2{
+        .logoparrafo2{
+            height: 2rem;
+            width: 10rem;
+        }
+        h3{
+            color: v.$blanco;
+            font-size: 2rem;
+            margin: 0;
+            text-align: start;
+        }
+        h1{
+            color: v.$blanco;
+            font-size: 6rem;
+            margin: 0;
+            text-align: center;
+        }
+    }
+}

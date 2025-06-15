@@ -1,0 +1,42 @@
+@use 'variables' as v;
+
+@mixin telefono {
+    @media (max-width: v.$telefono){
+        @content; //* asi se le puede pasar propiedades desde el @include 
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet){
+        @content; 
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop){
+        @content;         
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL){
+        @content;        
+    }
+}
+
+// MIXIN COLUMNAS
+@mixin grid($columnas: 1, $gap: 5rem) { // se le agrega el segundo parametro y el valor por default de no ser agregado cuando se mande llamar este mixin
+    // con $columnas es dando el parametro y hacer mas inteligente el mixin 
+    // asi podremos poner el numero de columnas que sea necesario en el sitio
+    
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $gap;
+}
+
+@mixin parrafobtns{
+    p{
+        color: v.$blanco;
+        margin: 0;
+    }
+}

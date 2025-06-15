@@ -1,0 +1,40 @@
+// para agregar hover a los enlaces
+//** .navegacion-principal {
+//     display: flex;
+//     gap: 2rem;
+
+//     a{
+//         color: v.$blanco;
+//         font-size: 2.4rem;
+
+//         &:hover { // pseudo selector 
+//             color: v.$amaraillo;
+//         }
+//     } 
+// */ }
+
+//***** ///////////////////
+
+//* como aplicar mixins 
+
+// .header{
+//     background-color: v.$verde;
+
+//     @include m.telefono{ // m. es por los mixins cuando se mandan llamar 
+         //                  @use 'base/mixins' as m; 
+         //                  asi ya se aplican los cambios al media de telefono 
+//         color: white;
+//         width: 10rem;
+//     }
+// }
+//*/
+
+//* para centrar verticalmente en un contenedor 
+// display: flex;
+// align-items: center;
+
+//* como usar un mixin dentro de otro mixin con parametros
+// .sobre-festival{
+// @include m.tablet{
+//          @include m.grid(3)}  // se le estan agregando los parametros para el numero de columnas que se van a necesitar
+//}

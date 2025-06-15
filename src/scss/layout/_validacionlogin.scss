@@ -1,0 +1,17 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+.inputlogin{
+    display: flex;
+    text-align: center;
+}
+
+
+.errorusuario{
+    background-color: #ab8812;
+    color: white;
+    text-align: center;
+    padding: .5rem;
+    border-radius: 1rem;
+}

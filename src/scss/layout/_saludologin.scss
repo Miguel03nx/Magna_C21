@@ -1,0 +1,65 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+
+.logincentrado{
+    // background-color: v.$loginfondo;
+    opacity: .7;
+                .contenidoform{ // siempre es bueno tener un div auxiliar que ayude a acomodar el contenido 
+                    
+                    width: 100%;
+
+                    // padding: 0;
+                    @include m.tablet{
+                            // background-color: v.$loginfondo;
+                            display: flex;
+                            height: 30rem;
+                            align-items: center;
+                            width: 100%;
+                            justify-content: center;
+                    }
+                }
+}
+
+
+.formulariologin{
+    background: #EAC917;
+    background: linear-gradient(31deg, rgba(234, 201, 23, 1) 0%, rgba(224, 187, 11, 1) 41%, rgba(178, 143, 15, 1) 75%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4rem;
+    padding: 1rem;
+}
+
+.saludoaux{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: .5rem;
+}
+
+.saludologin, .subsaludologin, .subsaludologin2{
+    margin: 0;
+    color: v.$blanco;
+}
+
+.saludologin{
+    font-weight: 700;
+}
+
+.subsaludologin{
+    font-size: medium;
+    text-align: center;
+}
+
+.subsaludologin2{
+    font-size: large;
+}
+
+.loginfield{
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
