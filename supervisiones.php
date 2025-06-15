@@ -33,20 +33,43 @@ incluirTemplate('header');
             </section> <!-- aqui termina el section del segundo logo --> 
             
             <div class="titulo1">
-                <h1 class="titulo1H">¡Haz que valga la pena!</h1>
+                <h1 class="titulo1H">¡Haz que hoy valga la pena!</h1>
             </div> <!-- aqui termina el div del primer titulo HAZ QUE VALGA LA PENA-->
 
-            <section class="auxcontenido">
+            <section class="auxcontenido" >
                 
                 <section class="contenido">
 
-                    <h1>Supervisiones</h1>
+                    <h1 style="margin-bottom: 1rem; margin-top: 1rem;">Área de Supervisión</h1>
+
+                    <!-- seccion de botones para supervisiones -->
+                    <div class="botonesG" id="botonesG"> <!-- div que contiene los botones -->
+
+                        <button type="submit" class="boton1" data-contenido="calendario">
+                            <p>Calendario</p>
+                        </button>
+
+                        <button type="submit" class="boton1" data-contenido="evaluacion-liderazgo">
+                            <p>Evaluación de Liderazgo</p>
+                        </button>
+
+                        <button type="submit" class="boton1" data-contenido="programa-liderazgo">
+                            <p>Programa de Liderazgo</p>
+                        </button>
+
+                    </div>
+
+                    <div class="contenido-dinamico">
+                        <p>Selecciona una opción del menú superior</p>
+                    </div>
 
                 </section> <!-- AQUI TERMINA EL SECTION DONDE CONTIENE LOS PARRAFOS Y MAS -->
             </section>
             
-
         </section>
     </section>
 </body>
-</html>
+
+<?php 
+    incluirTemplate('footer');
+?>
