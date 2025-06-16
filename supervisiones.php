@@ -61,15 +61,12 @@ incluirTemplate('header');
 
                     <div class="contenido-dinamico">
                         <p>Selecciona una opción del menú superior</p>
-                    </div>
-
-                </section> <!-- AQUI TERMINA EL SECTION DONDE CONTIENE LOS PARRAFOS Y MAS -->
+                    </div>                </section> <!-- AQUI TERMINA EL SECTION DONDE CONTIENE LOS PARRAFOS Y MAS -->
             </section>
             
         </section>
     </section>
+
+    <script src="build/js/botonessupervisiones.js"></script>
 </body>
 
-<?php 
-    incluirTemplate('footer');
-?>
