@@ -1,10 +1,13 @@
-# Usa una imagen oficial de PHP con Apache
+# Usa PHP 8.2 con Apache
 FROM php:8.2-apache
 
-# Copia tu código fuente al directorio raíz de Apache
+# Instala soporte para MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Copia tu código a la carpeta pública de Apache
 COPY . /var/www/html/
 
-# Da permisos al código (opcional, pero recomendable)
+# Ajusta permisos
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
