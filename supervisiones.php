@@ -65,8 +65,6 @@ incluirTemplate('header');
             </section>
             
         </section>
-    </section>
-
-    <script src="build/js/botonessupervisiones.js"></script>
+    </section>    <script src="src/js/botonessupervisiones.js"></script>
 </body>
 
