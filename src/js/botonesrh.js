@@ -69,15 +69,20 @@ function mostrarSubMenuModulo1(){
         nuevoBoton.classList.add("boton1");
         nuevoBoton.textContent = opcion;
 
-        if (opcion === "volver"){
+        if (opcion === "volver") {
             nuevoBoton.addEventListener("click", ()=> {
                 // con esto volvemos al menu anterior a los modulos 
-                mostrarSubMenu("Gerenciales", ["modulo 1", "modulo 2", "modulo 3", "volver"])
+                mostrarSubMenu("Gerenciales", ["modulo 1", "modulo 2", "modulo 3", "volver"]);
             });
-        } else {
-            nuevoBoton.addEventListener("click", ()=>{
-                console.log("elegiste la opcion del modulo 1" + opcion);
-            })
+        } else if (opcion === "Crear Modulo") {
+            nuevoBoton.addEventListener("click", ()=> {
+                // Redirigir a la página de crear módulo
+                window.location.href = "/admin/documentos/crear.php";
+            });
+        } else if (opcion === "Crear Examen") {
+            nuevoBoton.addEventListener("click", ()=> {
+                console.log("Creando examen...");
+            });
         }
 
         contenedorBtns.appendChild(nuevoBoton);
@@ -88,26 +93,24 @@ function mostrarSubMenuModulo1(){
 
 // esta funcion es para el boton de volver al menu principal desde los modulos 
 function mostrarMenuPrincipal(){
-    // se limpia primero el conenedor 
+    // se limpia primero el contenedor 
     contenedorBtns.innerHTML = "";
 
-    // regresamos o volvemos a crear los botones gerenciales y supervisor
-    const btnGerencialNuevo = document.createElement("button"); // para volver a crear el boton 
-    btnGerencialNuevo.classList.add("boton1") // le agregamos su clase para que vuelva a tener estilos
-    btnGerencialNuevo.textContent = "Gerenciales";
+    // Crear el botón gerencial
+    const btnGerencialNuevo = document.createElement("button");
+    btnGerencialNuevo.classList.add("boton1");
+    btnGerencialNuevo.id = "boton-gerencial";
+    btnGerencialNuevo.innerHTML = "<p>Gerenciales</p>";
+    btnGerencialNuevo.addEventListener("click", () => mostrarSubMenu("Gerenciales", ["modulo 1", "modulo 2", "modulo 3", "volver"]));
 
-    // le volvemos a asignar su funcion 
-    btnGerencialNuevo.addEventListener("click", () => mostrarSubMenu("Gerenciales", ["modulo 1", "modulo 2", "modulo 3", "volver"])); // asi vuelve a entrar a sus botones cuando le demos click en él
-
-    const btnSupervisorNuevo = document.createElement("button"); // se crea nuevo boton 
-    btnSupervisorNuevo.classList.add("boton1") // le agregamos los estilos que tenia
-    btnSupervisorNuevo.textContent = "Supervisores";
-    
-    // le agregamos su funcion para sus modulos
+    // Crear el botón de supervisor
+    const btnSupervisorNuevo = document.createElement("button");
+    btnSupervisorNuevo.classList.add("boton1");
+    btnSupervisorNuevo.id = "boton-supervisor";
+    btnSupervisorNuevo.innerHTML = "<p>Supervisores</p>";
     btnSupervisorNuevo.addEventListener("click", () => mostrarSubMenu("Supervisores", ["modulo 1", "modulo 2", "modulo 3", "volver"]));
 
-
-    // se termina por agregar los botones una vez que se da click en volver 
+    // Agregar los botones al contenedor
     contenedorBtns.appendChild(btnGerencialNuevo);
     contenedorBtns.appendChild(btnSupervisorNuevo);
 }
