@@ -9,48 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
         idPrevio: null
     };
 
-    // Agregar estilos CSS
+    // Eliminamos los estilos CSS inline y dejamos solo las clases
     const styles = document.createElement('style');
     styles.textContent = `
-        .form-evidencia {
-            padding: 20px;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-        }
-        .tarea-container {
-            margin-bottom: 20px;
-        }
-        .upload-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .file-input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        #selectedFileName {
-            margin-top: 10px;
-            color: #666;
-        }
-        #btnSubir, #btnCancelar {
-            display: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        #btnSubir {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-        }
-        #btnCancelar {
-            background-color: #f44336;
-            color: white;
-            border: none;
-        }
         .contenido-dinamico {
             display: none;
         }
@@ -132,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Aquí tienes las opciones para el Módulo ${numeroModulo}.</p>
             </div>
             <div class="programaliderazgo">
-                <button class="sub-boton" data-accion="examen">Examen</button>
-                <button class="sub-boton" data-accion="material">Material</button>
-                <button class="sub-boton" data-accion="foro">FORO</button>
-                <button class="sub-boton" data-accion="evidencia">EVIDENCIA</button>
+                <button class="sub-boton boton1" data-accion="examen">Examen</button>
+                <button class="sub-boton boton1" data-accion="material">Material</button>
+                <button class="sub-boton boton1" data-accion="foro">FORO</button>
+                <button class="sub-boton boton1" data-accion="evidencia">EVIDENCIA</button>
                 <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
             </div>
         `;
@@ -147,18 +108,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function mostrarFormularioEvidencia() {
         const html = `
-            <div class="form-evidencia">
-                <h3>Subir Evidencia - Módulo ${moduloActual}</h3>
-                <div class="tarea-container">
-                    <label>Tarea 1:</label>
-                    <div class="upload-controls">
-                        <input type="file" id="fileInput" class="file-input">
-                        <button id="btnSubir" class="sub-boton">Subir</button>
-                        <button id="btnCancelar" class="sub-boton">Cancelar</button>
-                    </div>
-                    <p id="selectedFileName"></p>
+            <div class="form-evidencia gerencial-evidencia">
+                <div class="gerencial-evidencia-header">
+                    <h3 class="gerencial-evidencia-titulo">Subir Evidencia - Módulo ${moduloActual}</h3>
                 </div>
-                <button class="boton-volver" data-destino="modulo">Volver al Módulo</button>
+                <div class="gerencial-evidencia-content">
+                    <div class="tarea-container">
+                        <label class="gerencial-evidencia-label">Tarea 1:</label>
+                        <div class="upload-controls gerencial-evidencia-controls">
+                            <input type="file" id="fileInput" class="file-input gerencial-evidencia-input">
+                            <div class="gerencial-evidencia-buttons">
+                                <button id="btnSubir" class="sub-boton boton1 gerencial-evidencia-btn">Subir</button>
+                                <button id="btnCancelar" class="sub-boton boton1 gerencial-evidencia-btn">Cancelar</button>
+                            </div>
+                        </div>
+                        <p id="selectedFileName" class="gerencial-evidencia-filename"></p>
+                    </div>
+                    <button class="boton-volver gerencial-evidencia-btn-volver" data-destino="modulo">Volver al Módulo</button>
+                </div>
             </div>
         `;
         contenidoDinamico.innerHTML = html;

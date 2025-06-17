@@ -1,0 +1,25 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+.evidencia-titulo, .gerencial-evidencia-titulo{
+    font-size: 3rem;
+}
+
+.form-evidencia, .evidencia-container{
+    // background-color: black;
+    width: 60rem;
+    height: 35rem;
+}
+
+.form-evidencia{
+    // background-color: black;
+    width: 60rem;
+    height: 35rem;
+}
+
+.gerencial-evidencia-btn, .evidencia-btn{
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.8rem;
+}

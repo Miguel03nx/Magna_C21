@@ -984,3 +984,23 @@ label {
 .btn-modulo:hover {
   background: #fff500;
 }
+
+.evidencia-titulo, .gerencial-evidencia-titulo {
+  font-size: 3rem;
+}
+
+.form-evidencia, .evidencia-container {
+  width: 60rem;
+  height: 35rem;
+}
+
+.form-evidencia {
+  width: 60rem;
+  height: 35rem;
+}
+
+.gerencial-evidencia-btn, .evidencia-btn {
+  width: 15rem;
+  height: 4rem;
+  font-size: 1.8rem;
+}
