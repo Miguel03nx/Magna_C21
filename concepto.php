@@ -32,7 +32,7 @@ incluirTemplate('header');
 
             <section class="auxcontenido">
                 <section class="contenido">
-                    <h1>Concepto 21</h1>
+                    <h1 class="conceptotitulo">Concepto 21</h1>
 
                     <!-- Botones principales -->
                     <div class="botonesG" id="botonesConcepto">
@@ -51,10 +51,12 @@ incluirTemplate('header');
                     </div>
 
                     <!-- Template para la tabla de tareas (inicialmente oculto) -->
-                    <template id="tabla-tareas-template">
+                    <template id="tabla-tareas-template" class="template-tareas">
                         <div class="tabla-container">
-                            <h2 class="tabla-titulo">Lista de Tareas</h2>
-                            <div class="tabla-scroll">
+                            <div class="tabla-header">
+                                <h2 class="tabla-titulo">Lista de Tareas</h2>
+                            </div>
+                            <div class="tabla-scroll-container">
                                 <table class="tabla-tareas">
                                     <thead>
                                         <tr>
@@ -95,12 +97,45 @@ incluirTemplate('header');
                                                 </button>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>Gerencial 4</td>
+                                            <td>Tarea 1</td>
+                                            <td>presentacion.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gerencial 5</td>
+                                            <td>Tarea 3</td>
+                                            <td>analisis.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gerencial 6</td>
+                                            <td>Tarea 2</td>
+                                            <td>resumen_ejecutivo.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </template>
 
+                    <style>
+                        
+                    </style>
                 </section>
             </section>
         </section>
