@@ -33,7 +33,7 @@ incluirTemplate('header');
             </section> <!-- aqui termina el section del segundo logo --> 
             
             <div class="titulo1">
-                <h1 class="titulo1H">¡Haz que valga la pena!</h1>
+                <h1 class="titulo1H">¡Haz que hoy valga la pena!</h1>
             </div> <!-- aqui termina el div del primer titulo HAZ QUE VALGA LA PENA-->
 
             <section class="auxcontenido">

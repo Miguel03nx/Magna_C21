@@ -70,9 +70,9 @@ incluirTemplate('header');
                             <p>Programa Liderazgo</p>
                         </button>
 
-                        <button type="submit" class="boton1" data-contenido="ejemplo">
+                        <!-- <button type="submit" class="boton1" data-contenido="ejemplo">
                             <p>ejemplo 1</p>
-                        </button>
+                        </button> -->
 
                         <!-- <dialog id="myDialog" closedby="any">
                             <h2>Bienvenido</h2>

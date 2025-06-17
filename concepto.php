@@ -32,21 +32,33 @@ incluirTemplate('header');
             </section> <!-- aqui termina el section del segundo logo --> 
             
             <div class="titulo1">
-                <h1 class="titulo1H">¡Haz que valga la pena!</h1>
+                <h1 class="titulo1H">¡Haz que hoy valga la pena!</h1>
             </div> <!-- aqui termina el div del primer titulo HAZ QUE VALGA LA PENA-->
 
             <section class="auxcontenido">
                 
-                <section class="contenido">
+                <section class="contenido">                <h1>Concepto 21</h1>
 
-                <h1> Concepto 21</h1>
+                    <!-- seccion de botones para concepto -->
+                    <div class="botonesG" id="botonesConcepto"> <!-- div que contiene los botones -->
+                        <button type="submit" class="boton1" id="boton-gerencial-concepto">
+                            <p>Gerenciales</p>
+                        </button>
 
+                        <button type="submit" class="boton1" id="boton-supervisor-concepto">
+                            <p>Supervisores</p>
+                        </button>
+
+                        <button type="submit" class="boton1" id="boton-rh-concepto">
+                            <p>Recursos Humanos</p>
+                        </button>
+                    </div>
 
                 </section> <!-- AQUI TERMINA EL SECTION DONDE CONTIENE LOS PARRAFOS Y MAS -->
             </section>
-            
-
-        </section>
+                </section>
     </section>
+
+    <script src="src/js/botonesconcepto.js"></script>
 </body>
 </html>
