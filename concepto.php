@@ -1,14 +1,11 @@
 <?php 
 require 'includes/funciones.php';
-
 incluirTemplate('header'); 
-
 ?>
 
 <body>
     <section class="saludo-inicio">
         <div class="nav">
-            <!-- <h1>aqui el nav</h1> -->
             <section class="logoMLider">
                 <img class="logoMagnaLider" src="src/imglogin/MagnaC21-30.svg" alt="logoconcepto21login">
             </section>
@@ -24,41 +21,93 @@ incluirTemplate('header');
             </div>
         </div>
 
-        <!-- TO DO ICONO HAMBURGUESA -->
-
         <section class="contenedor">
-            <section class="logoconceptoblack ">
-                    <img class="LCblack" src="src/imglogin/MagnaC21-29.svg" alt="logoconcepto21login">
-            </section> <!-- aqui termina el section del segundo logo --> 
+            <section class="logoconceptoblack">
+                <img class="LCblack" src="src/imglogin/MagnaC21-29.svg" alt="logoconcepto21login">
+            </section>
             
             <div class="titulo1">
                 <h1 class="titulo1H">¡Haz que hoy valga la pena!</h1>
-            </div> <!-- aqui termina el div del primer titulo HAZ QUE VALGA LA PENA-->
+            </div>
 
             <section class="auxcontenido">
-                
-                <section class="contenido">                <h1>Concepto 21</h1>
+                <section class="contenido">
+                    <h1>Concepto 21</h1>
 
-                    <!-- seccion de botones para concepto -->
-                    <div class="botonesG" id="botonesConcepto"> <!-- div que contiene los botones -->
-                        <button type="submit" class="boton1" id="boton-gerencial-concepto">
+                    <!-- Botones principales -->
+                    <div class="botonesG" id="botonesConcepto">
+                        <button type="submit" class="boton1" data-tipo="gerenciales">
                             <p>Gerenciales</p>
                         </button>
 
-                        <button type="submit" class="boton1" id="boton-supervisor-concepto">
+                        <button type="submit" class="boton1" data-tipo="supervisores">
                             <p>Supervisores</p>
-                        </button>
-
-                        <button type="submit" class="boton1" id="boton-rh-concepto">
-                            <p>Recursos Humanos</p>
                         </button>
                     </div>
 
-                </section> <!-- AQUI TERMINA EL SECTION DONDE CONTIENE LOS PARRAFOS Y MAS -->
-            </section>
+                    <!-- Contenido dinámico -->
+                    <div class="contenido-dinamico" id="contenidoDinamico">
+                        <p>Selecciona una opción del menú superior</p>
+                    </div>
+
+                    <!-- Template para la tabla de tareas (inicialmente oculto) -->
+                    <template id="tabla-tareas-template">
+                        <div class="tabla-container">
+                            <h2 class="tabla-titulo">Lista de Tareas</h2>
+                            <div class="tabla-scroll">
+                                <table class="tabla-tareas">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre de usuario</th>
+                                            <th>Tarea</th>
+                                            <th>Archivo</th>
+                                            <th>Descargar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Gerencial 1</td>
+                                            <td>Tarea 1</td>
+                                            <td>tarea1.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gerencial 2</td>
+                                            <td>Tarea 1</td>
+                                            <td>evidencia_modulo1.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gerencial 3</td>
+                                            <td>Tarea 2</td>
+                                            <td>reporte_final.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </template>
+
                 </section>
+            </section>
+        </section>
     </section>
 
+    <!-- Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="src/js/botonesconcepto.js"></script>
 </body>
 </html>
