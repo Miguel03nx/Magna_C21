@@ -78,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Botones principales
         if (e.target.closest('[data-tipo]')) {
             const tipo = e.target.closest('[data-tipo]').dataset.tipo;
+            if (tipo === 'foro') {
+                alert('FORO en desarrollo');
+                return;
+            }
             mostrarModulos(tipo);
         }
 

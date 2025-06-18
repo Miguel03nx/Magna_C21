@@ -43,6 +43,10 @@ incluirTemplate('header');
                         <button type="submit" class="boton1" data-tipo="supervisores">
                             <p>Supervisores</p>
                         </button>
+
+                        <button type="submit" class="boton1" data-tipo="foro">
+                            <p>FORO</p>
+                        </button>
                     </div>
 
                     <!-- Contenido dinámico -->

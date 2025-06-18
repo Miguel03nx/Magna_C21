@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
         idPrevio: null
     };
 
+    // Lista de botones temporalmente deshabilitados
+    const botonesTemporales = ['calendario', 'reporte-planeacion', 'coaching'];
+
     // Eliminamos los estilos CSS inline y dejamos solo las clases
     const styles = document.createElement('style');
     styles.textContent = `
@@ -18,36 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(styles);
 
-    // Objeto contenidos: Define el HTML para cada sección
+    // Mantenemos el objeto contenidos original pero no lo usaremos para los botones temporales
     const contenidos = {
-        'calendario': `
-            <h2>Mi Calendario</h2>
-            <p>Aquí verás el calendario de eventos y reuniones.</p>
-            <div class="programaliderazgo">
-                <button class="sub-boton" data-accion="ver-reuniones">Ver Reuniones</button>
-                <button class="sub-boton" data-accion="crear-evento">Crear Evento</button>
-                <button class="boton-volver" data-destino="principal">Volver al Menú Principal</button>
-            </div>
-        `,
-        'reporte-planeacion': `
-            <h2>Reporte de Planeación Estratégica</h2>
-            <p>Contenido detallado sobre los reportes de planeación.</p>
-            <div class="programaliderazgo">
-                <ul>
-                    <li>Meta 1: Alcanzada</li>
-                    <li>Meta 2: En progreso</li>
-                </ul>
-                <button class="boton-volver" data-destino="principal">Volver al Menú Principal</button>
-            </div>
-        `,
-        'coaching': `
-            <h2>Sesiones de Coaching</h2>
-            <p>Información sobre las sesiones de coaching disponibles.</p>
-            <div class="programaliderazgo">
-                <button class="sub-boton" data-accion="agendar">Agendar Sesión</button>
-                <button class="boton-volver" data-destino="principal">Volver al Menú Principal</button>
-            </div>
-        `,
+        // ...contenido original guardado para uso futuro...
         'personalidad-liderazgo': `
             <div class="titulosprogramaL personalidad">
                 <h2>Personalidad y Liderazgo</h2>
@@ -171,6 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function mostrarContenido(keyContenido) {
+        // Verificar si el botón está en la lista de temporales
+        if (botonesTemporales.includes(keyContenido)) {
+            alert('Nuevo contenido pronto');
+            return;
+        }
+
         if (contenidos[keyContenido]) {
             botonesPrincipalesContainer.style.display = 'none';
             contenidoDinamico.innerHTML = contenidos[keyContenido];
@@ -238,8 +220,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 mostrarContenido(keyContenido);
             }
 
-            botonesPrincipales.forEach(b => b.classList.remove('activo'));
-            boton.classList.add('activo');
+            // Solo agregamos la clase activo si no es un botón temporal
+            if (!botonesTemporales.includes(keyContenido)) {
+                botonesPrincipales.forEach(b => b.classList.remove('activo'));
+                boton.classList.add('activo');
+            }
         });
     });
 

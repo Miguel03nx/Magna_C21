@@ -24,6 +24,18 @@
     font-size: 1.8rem;
 }
 
+// BOTONES DE MODULOS EN COCEPTO 21
+
+.modulos-grid{
+    @include m.grid(2, 1rem);
+    margin-bottom: 1rem;
+}
+
+// BOTONES CONCEPTO 21 TAREA Y EXAMEN
+.opciones-grid{
+    @include m.grid(2, 1rem);
+    margin-bottom: 1rem;
+}
 
 // BOTONES DE CONCEPTO EN TAREAS
 .conceptotitulo{

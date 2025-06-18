@@ -1005,6 +1005,20 @@ label {
   font-size: 1.8rem;
 }
 
+.modulos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.opciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .conceptotitulo {
   margin: 0;
 }
