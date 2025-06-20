@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const botonesContainer = document.querySelector('#botonesConcepto');
     const contenidoDinamico = document.querySelector('#contenidoDinamico');
     const tablaTemplate = document.querySelector('#tabla-tareas-template');
+    const tablaExamenesGerencialesTemplate = document.querySelector('#tabla-examenes-gerenciales-template');
+    const tablaExamenesSupervisoresTemplate = document.querySelector('#tabla-examenes-supervisores-template');
     let tipoActual = '';
     let moduloActual = '';
 
@@ -60,6 +62,57 @@ document.addEventListener('DOMContentLoaded', function() {
         contenidoDinamico.appendChild(container);
     }
 
+    // Función para mostrar la tabla de exámenes
+    function mostrarTablaExamenes() {
+        const template = tipoActual.toLowerCase() === 'gerenciales' ? 
+            tablaExamenesGerencialesTemplate : 
+            tablaExamenesSupervisoresTemplate;
+        
+        const tablaClone = template.content.cloneNode(true);
+        const container = document.createElement('div');
+        container.className = 'vista-examenes';
+        container.innerHTML = `
+            <h2>${tipoActual} - Módulo ${moduloActual}</h2>
+        `;
+        container.appendChild(tablaClone);
+        container.innerHTML += `
+            <button class="boton-volver" data-nivel="opciones">Volver</button>
+        `;
+        contenidoDinamico.innerHTML = '';
+        contenidoDinamico.appendChild(container);
+
+        // Configurar los controles de archivo
+        configurarControlesArchivo();
+    }
+
+    // Función para configurar los controles de archivo
+    function configurarControlesArchivo() {
+        const prefix = tipoActual.toLowerCase() === 'gerenciales' ? 'gerencial' : 'supervisor';
+        
+        document.querySelectorAll(`.${prefix}-file`).forEach((input, index) => {
+            const uploadButtons = input.nextElementSibling;
+            const btnSubir = uploadButtons.querySelector('.btn-subir');
+            const btnCancelar = uploadButtons.querySelector('.btn-cancelar');
+
+            input.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    uploadButtons.style.display = 'flex';
+                }
+            });
+
+            btnSubir.addEventListener('click', function() {
+                alert('Archivo subido exitosamente');
+                input.value = '';
+                uploadButtons.style.display = 'none';
+            });
+
+            btnCancelar.addEventListener('click', function() {
+                input.value = '';
+                uploadButtons.style.display = 'none';
+            });
+        });
+    }
+
     // Función para volver al nivel anterior
     function volver(nivel) {
         if (nivel === 'modulos') {
@@ -97,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (opcion === 'tareas') {
                 mostrarTablaTareas();
             } else if (opcion === 'examenes') {
-                alert('Sección de exámenes en desarrollo');
+                mostrarTablaExamenes();
             }
         }
 

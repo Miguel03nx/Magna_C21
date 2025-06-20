@@ -42,21 +42,19 @@ incluirTemplate('header');
                     <h1 style="margin-bottom: 1rem; margin-top: 1rem;">Staff Gerencial</h1>
 
                     <!-- seccion de botones para gerencialesa -->
-                    <div class="botonesG" id="botonesG"> <!-- div que contiene los botones -->
-
-                        <button type="submit" class="boton1" data-contenido="calendario">
+                    <div class="botonesG" id="botonesG"> <!-- div que contiene los botones -->                        <button type="submit" class="boton1" data-contenido="calendario" data-action="download" data-file-type="png" data-api-endpoint="/api/calendario">
                             <!-- <img src="src/imgbtns/Botones-08.svg" alt=""> -->
                             <!-- el data contenido es lo que usa Js para poder leer, o modificar el contenido -->
                             <p>Calendario</p>
                         </button>
 
 
-                        <button type="submit" class="boton1" data-contenido="reporte-planeacion">
+                        <button type="submit" class="boton1" data-contenido="reporte-planeacion" data-action="download" data-file-type="pdf" data-api-endpoint="/api/reporte">
                             <p>Reporte planeacion estrategica</p>
                         </button>
 
 
-                        <button type="submit" class="boton1" data-contenido="coaching">
+                        <button type="submit" class="boton1" data-contenido="coaching" data-action="redirect" data-url="https://concepto21.com/coaching">
                             <p>Coaching</p>
                         </button>
 

@@ -782,12 +782,9 @@ label {
 }
 
 .botonesG {
-  display: grid;
+  display: block;
   width: 30rem;
   height: 20rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
 }
 .botonesG p {
   color: #ffffff;
@@ -795,9 +792,6 @@ label {
 }
 @media (min-width: 712px) {
   .botonesG {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
     width: 45rem;
     height: 25rem;
   }
@@ -808,21 +802,18 @@ label {
 }
 @media (min-width: 768px) {
   .botonesG {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
     width: 35rem;
     height: 30rem;
   }
 }
 @media (min-width: 1200px) {
   .botonesG {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     color: #ffffff;
     width: 65rem;
-    height: 30rem;
+    height: 25rem;
   }
   .botonesG p {
     color: #ffffff;
@@ -838,6 +829,7 @@ label {
   text-align: center;
   border-radius: 2rem;
   border-style: none;
+  margin-bottom: 0.5rem;
   cursor: pointer;
   color: #ffffff;
   border-top: 3px solid #86730b;

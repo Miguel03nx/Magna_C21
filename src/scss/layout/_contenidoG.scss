@@ -4,6 +4,7 @@
 
 
 .contenido{
+    // display: block;
     background-color: aqua;
     color: white;
     @include m.desktop{
@@ -12,16 +13,21 @@
 }
 // .sub-boton
 .botonesG {
-    display: grid;
+    display: block;
+    // align-content: center;
+        // align-items: center;
+        // justify-items: center;
+        // justify-content: center;
     // background-color: grey;
     width: 30rem;
     height: 20rem;
     @include m.parrafobtns;
+    // background-color: pink;
 
-     @include m.grid(2, 2.5rem);
+    //  @include m.grid(2, 2.5rem);
 
      @media (min-width: 712px) {
-         @include m.grid(2, 1rem);
+        //  @include m.grid(2, 1rem);
         // margin-left: 2rem;
         @include m.parrafobtns;
         width: 45rem;
@@ -29,7 +35,7 @@
      }
      
      @media (min-width: 768px) {
-        @include m.grid(2, 2rem);
+        // @include m.grid(2, 2rem);
         width: 35rem;
         height: 30rem;
      }
@@ -37,11 +43,16 @@
 
      
      @include m.desktop{
-        @include m.grid(2, 3rem);
+        // @include m.grid(2, 3rem);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
         color: v.$blanco;
         // margin-left: 5rem;
+        
         width: 65rem;
-        height: 30rem;
+        height: 25rem;
+        // background-color: black;
         p{
             color: v.$blanco;
             margin: 0;
@@ -58,6 +69,7 @@
      text-align: center;
     border-radius: 2rem;
     border-style: none;
+    margin-bottom: .5rem;
     // border: 2px solid #034859;
     cursor: pointer;
     color: v.$blanco;
