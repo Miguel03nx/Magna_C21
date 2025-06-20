@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
 
         'personalidad-liderazgo': `
             <div class="titulosprogramaL personalidad">
-                <h2>Personalidad y Liderazgo</h2>
-                <p>Explora recursos sobre tipos de personalidad y estilos de liderazgo.<p>
+                <h2></h2>
+                <p><p>
             </div>
             <div class="programaliderazgo ">
                 <button class="sub-boton">Reporte Insights Discovery</button>
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
         'programa-liderazgo': `
             <div class="titulosprogramaL">
                 <h2>Programa de Liderazgo</h2>
-                <p>Detalles del programa de desarrollo de liderazgo.</p>
+                <p></p>
             </div>
             <div class="programaliderazgo">
                 <button class="sub-boton sub-boton-navegacion" data-siguiente-nivel="modulo1">Módulo 1</button>
@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                 <button class="sub-boton sub-boton-navegacion" data-siguiente-nivel="modulo3">Módulo 3</button>
 
                 <button class="sub-boton sub-boton-navegacion" data-siguiente-nivel="modulo4">Módulo 4</button>
+
+                <button class="sub-boton sub-boton-navegacion" data-siguiente-nivel="modulo5">Módulo 5</button>
                 
                 <button class="boton-volver" data-destino="principal">Volver al Menú Principal</button>
             </div>
@@ -82,10 +84,9 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
         'modulo1': `
             <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 1</h3>
-            <p>Aquí tienes las opciones para el Módulo 1.</p>
             </div>
 
-            <div class="programaliderazgo">
+            <div class="contenidoModulo">
             <button class="sub-boton accion-final-boton">Examen</button>
             <button class="sub-boton accion-final-boton">Material</button>
             <button class="sub-boton accion-final-boton">FORO</button>
@@ -95,32 +96,57 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
 
         `,
         'modulo2': `
+             <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 2</h3>
-            <p>Aquí tienes las opciones para el Módulo 2.</p>
-            <button class="accion-final-boton">Tarea 1</button>
-            <button class="accion-final-boton">Material Complementario</button>
-            <button class="accion-final-boton">Examen</button>
-            <button class="accion-final-boton">Foro</button>
+            </div>
+            
+            <div class="contenidoModulo">
+            <button class="sub-boton accion-final-boton">Examen</button>
+            <button class="sub-boton accion-final-boton">Material</button>
+            <button class="sub-boton accion-final-boton">Foro</button>
+            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+            </div>
         `,
         'modulo3': `
+            <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 3</h3>
-            <p>Aquí tienes las opciones para el Módulo 3.</p>
-            <button class="accion-final-boton">Guía de Estudio</button>
-            <button class="accion-final-boton">Proyecto Final</button>
-            <button class="accion-final-boton">Examen</button>
-            <button class="accion-final-boton">Foro</button>
+            </div>
+
+            <div class="contenidoModulo">
+            <button class="sub-boton accion-final-boton">Guía de Estudio</button>
+            <button class="sub-boton accion-final-boton">Examen</button>
+            <button class="sub-boton accion-final-boton">Foro</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+            </div>
         `,
         'modulo4': `
+
+             <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 4</h3>
-            <p>Aquí tienes las opciones para el Módulo 4.</p>
-            <button class="accion-final-boton">Recursos Adicionales</button>
-            <button class="accion-final-boton">Certificación</button>
-            <button class="accion-final-boton">Examen</button>
-            <button class="accion-final-boton">Foro</button>
+            </div>
+
+
+            <button class="sub-boton accion-final-boton">Recursos Adicionales</button>
+            <button class="sub-boton accion-final-boton">Examen</button>
+            <button class="sub-boton accion-final-boton">Foro</button>
+            <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+        `,
+
+        'modulo5': `
+
+             <div class="titulosprogramaL modulog">
+            <h3>Contenido del Módulo 5</h3>
+            </div>
+
+
+            <button class="sub-boton accion-final-boton">Recursos Adicionales</button>
+            <button class="sub-boton accion-final-boton">Examen</button>
+            <button class="sub-boton accion-final-boton">Foro</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
         `
+
+        
     }; // aqui termina el objeto de contenidos    // Función para mostrar un contenido específico
     function mostrarContenido(keyContenido) {
         // Manejo especial para botones con acciones directas

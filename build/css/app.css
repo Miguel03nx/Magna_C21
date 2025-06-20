@@ -900,7 +900,12 @@ label {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    width: 65rem;
+    width: 15rem;
+  }
+  .programaliderazgo .sub-boton, .programaliderazgo .boton-volver {
+    width: 17rem;
+    height: 5rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -926,6 +931,21 @@ label {
 
 .personalidad p, .personalidad h2 {
   margin-bottom: 2rem;
+}
+
+.contenidoModulo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sub-boton, .boton-volver {
+  width: 20rem;
+  height: 5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .modulog p, .modulog h3 {
