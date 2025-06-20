@@ -955,6 +955,26 @@ label {
   font-size: 3rem;
 }
 
+.botonesS {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+.botonesS .botonS {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+  .botonesS {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    width: 65rem;
+    height: 30rem;
+  }
+}
+
 .formularioarchivos {
   width: 60rem;
 }

@@ -43,13 +43,13 @@ incluirTemplate('header');
                     <h1 style="margin-bottom: 1rem; margin-top: 1rem;">Área de Supervisión</h1>
 
                     <!-- seccion de botones para supervisiones -->
-                    <div class="botonesG" id="botonesG"> <!-- div que contiene los botones -->
+                    <div class="botonesS" id="botonesG"> <!-- div que contiene los botones -->
 
-                        <button type="submit" class="boton1" data-contenido="calendario">
+                        <button type="submit" class="boton1 botonS" data-contenido="calendario">
                             <p>Calendario</p>
                         </button>
 
-                        <button type="submit" class="boton1" data-contenido="evaluacion-liderazgo">
+                        <button type="submit" class="boton1 botonS" data-contenido="evaluacion-liderazgo">
                             <p>Evaluación de Liderazgo</p>
                         </button>
 

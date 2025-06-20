@@ -80,70 +80,139 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
         `,
         
         // NUEVOS CONTENIDOS PARA EL NIVEL 2 (MÓDULOS INDIVIDUALES)
-        // CADA UNO CONTIENE BOTONES DE ACCIÓN FINAL Y UN BOTÓN VOLVER ESPECÍFICO
+        // CADA UNO CONTIENE BOTONES DE ACCIÓN FINAL Y UN BOTÓN VOLVER ESPECÍFICO        // MÓDULO 1: Contenido y botones con atributos para integración
         'modulo1': `
             <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 1</h3>
             </div>
 
             <div class="contenidoModulo">
-            <button class="sub-boton accion-final-boton">Examen</button>
-            <button class="sub-boton accion-final-boton">Material</button>
-            <button class="sub-boton accion-final-boton">FORO</button>
+            <!-- El botón Examen está preparado para integración con Google Forms -->
+            <button class="sub-boton accion-final-boton" 
+                    data-action="forms" 
+                    data-module="1" 
+                    data-api-endpoint="/api/exam/module1">Examen</button>
+            
+            <!-- El botón Material mostrará alerta de descarga PDF -->
+            <button class="sub-boton accion-final-boton"
+                    data-action="download"
+                    data-file-type="pdf"
+                    data-module="1"
+                    data-api-endpoint="/api/material/module1">Material</button>
+            
+            <!-- El botón FORO mantiene su funcionalidad actual -->
+            <button class="sub-boton accion-final-boton"
+                    data-action="forum"
+                    data-module="1">FORO</button>
+            
             <button class="sub-boton accion-final-boton">EVIDENCIA</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
             </div>
-
         `,
+
+        // MÓDULO 2: Similar configuración al Módulo 1
         'modulo2': `
              <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 2</h3>
             </div>
             
             <div class="contenidoModulo">
-            <button class="sub-boton accion-final-boton">Examen</button>
-            <button class="sub-boton accion-final-boton">Material</button>
-            <button class="sub-boton accion-final-boton">Foro</button>
+            <button class="sub-boton accion-final-boton"
+                    data-action="forms"
+                    data-module="2"
+                    data-api-endpoint="/api/exam/module2">Examen</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="download"
+                    data-file-type="pdf"
+                    data-module="2"
+                    data-api-endpoint="/api/material/module2">Material</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="forum"
+                    data-module="2">Foro</button>
+            
             <button class="sub-boton accion-final-boton">EVIDENCIA</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
             </div>
         `,
+
+        // MÓDULO 3: Similar configuración
         'modulo3': `
             <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 3</h3>
             </div>
 
             <div class="contenidoModulo">
-            <button class="sub-boton accion-final-boton">Guía de Estudio</button>
-            <button class="sub-boton accion-final-boton">Examen</button>
-            <button class="sub-boton accion-final-boton">Foro</button>
+            <button class="sub-boton accion-final-boton"
+                    data-action="forms"
+                    data-module="3"
+                    data-api-endpoint="/api/exam/module3">Examen</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="download"
+                    data-file-type="pdf"
+                    data-module="3"
+                    data-api-endpoint="/api/material/module3">Material</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="forum"
+                    data-module="3">Foro</button>
+            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
             </div>
         `,
-        'modulo4': `
 
+        // MÓDULO 4: Similar configuración
+        'modulo4': `
              <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 4</h3>
             </div>
 
-
-            <button class="sub-boton accion-final-boton">Recursos Adicionales</button>
-            <button class="sub-boton accion-final-boton">Examen</button>
-            <button class="sub-boton accion-final-boton">Foro</button>
+            <div class="contenidoModulo">
+            <button class="sub-boton accion-final-boton"
+                    data-action="forms"
+                    data-module="4"
+                    data-api-endpoint="/api/exam/module4">Examen</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="download"
+                    data-file-type="pdf"
+                    data-module="4"
+                    data-api-endpoint="/api/material/module4">Material</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="forum"
+                    data-module="4">Foro</button>
+            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+            </div>
         `,
 
+        // MÓDULO 5: Similar configuración
         'modulo5': `
-
              <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 5</h3>
             </div>
 
-
-            <button class="sub-boton accion-final-boton">Recursos Adicionales</button>
-            <button class="sub-boton accion-final-boton">Examen</button>
-            <button class="sub-boton accion-final-boton">Foro</button>
+            <div class="contenidoModulo">
+            <button class="sub-boton accion-final-boton"
+                    data-action="forms"
+                    data-module="5"
+                    data-api-endpoint="/api/exam/module5">Examen</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="download"
+                    data-file-type="pdf"
+                    data-module="5"
+                    data-api-endpoint="/api/material/module5">Material</button>
+            
+            <button class="sub-boton accion-final-boton"
+                    data-action="forum"
+                    data-module="5">Foro</button>
+            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
             <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+            </div>
         `
 
         
@@ -205,15 +274,41 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                     const siguienteNivelKey = boton.dataset.siguienteNivel;
                     mostrarContenido(siguienteNivelKey); // LLAMADA RECURSIVA PARA PROFUNDIZAR
                 });
-            });
+            });            // Funciones específicas para cada tipo de botón en los submódulos
+            function handleExamenClick(modulo) {
+                // TODO: Aquí se integrará con Google Forms
+                // La URL del forms se configurará desde el backend
+                console.log(`Preparado para abrir Google Forms del módulo ${modulo}`);
+                alert('Redirigiendo a evaluación...');
+            }
 
-            // NUEVO: MANEJO DE BOTONES DE ACCIÓN FINAL (ej. Examen, Foro, Video, etc.)
+            function handleMaterialClick() {
+                alert('se descargo pdf');
+                // TODO: Aquí irá la lógica de descarga cuando se integre con el backend
+            }
+
+            // MANEJO DE BOTONES DE ACCIÓN FINAL (ej. Examen, Material, Foro, etc.)
             const accionFinalBotones = contenidoDinamico.querySelectorAll('.accion-final-boton');
             accionFinalBotones.forEach(boton => {
                 boton.addEventListener('click', (event) => {
-                    alert(`Has hecho clic en una acción final: ${event.target.textContent}`);
-                    // AQUÍ IRÍA LA LÓGICA ESPECÍFICA PARA CADA ACCIÓN FINAL
-                    // COMO DESCARGAR, ABRIR UN MODAL, NAVEGAR A OTRA PÁGINA, ETC.
+                    const accion = event.target.textContent.toLowerCase();
+                    const modulo = keyContenido; // Obtiene el módulo actual
+
+                    // Manejo específico según el tipo de botón
+                    switch(accion) {
+                        case 'examen':
+                            handleExamenClick(modulo);
+                            break;
+                        case 'material':
+                            handleMaterialClick();
+                            break;
+                        case 'foro':
+                            // El botón FORO mantiene su comportamiento actual
+                            alert(`Has hecho clic en: ${event.target.textContent}`);
+                            break;
+                        default:
+                            alert(`Has hecho clic en: ${event.target.textContent}`);
+                    }
                 });
             });
 

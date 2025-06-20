@@ -65,7 +65,7 @@ function mostrarMenuProgramaLiderazgo() {
 function mostrarMenuModulo(modulo) {
     contenedorBtns.innerHTML = "";
     
-    const opciones = ["Examen", "Material", "volver"];
+    const opciones = ["Examen", "Material", "FORO", "EVIDENCIA", "volver"];
     
     opciones.forEach(opcion => {
         const nuevoBoton = document.createElement("button");
@@ -75,9 +75,25 @@ function mostrarMenuModulo(modulo) {
         if (opcion === "volver") {
             nuevoBoton.addEventListener("click", mostrarMenuProgramaLiderazgo);
         } else {
+            nuevoBoton.dataset.accion = opcion.toLowerCase();
             nuevoBoton.addEventListener("click", () => {
-                console.log(`${modulo} - ${opcion}`);
-                // Aquí puedes agregar la lógica específica para cada opción
+                const accion = opcion.toLowerCase();
+                switch(accion) {
+                    case 'evidencia':
+                        mostrarFormularioEvidencia();
+                        break;
+                    case 'examen':
+                        alert('Accediendo al examen del módulo ' + modulo);
+                        break;
+                    case 'material':
+                        alert('Descargando material del módulo ' + modulo);
+                        break;
+                    case 'foro':
+                        alert('Accediendo al foro del módulo ' + modulo);
+                        break;
+                    default:
+                        console.log(`${modulo} - ${opcion}`);
+                }
             });
         }
         
@@ -181,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         estadoNavegacionActual.nivel = 1;
         estadoNavegacionActual.idPrevio = 'principal';
     }
-
+    
     function mostrarContenidoModulo(numeroModulo) {
         moduloActual = numeroModulo;
         const html = `
@@ -199,60 +215,133 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         contenidoDinamico.innerHTML = html;
         contenidoDinamico.style.display = 'grid';
+        
+        // Asegurarse de que los botones tengan sus event listeners
+        const botones = contenidoDinamico.querySelectorAll('.sub-boton');
+        botones.forEach(boton => {
+            if(boton.dataset.accion === 'evidencia') {
+                boton.addEventListener('click', () => mostrarFormularioEvidencia());
+            }
+        });
         estadoNavegacionActual.nivel = 2;
         estadoNavegacionActual.idPrevio = 'programa-liderazgo';
     }
-
+    
     function mostrarFormularioEvidencia() {
+        contenedorBtns.innerHTML = "";
+        
         const html = `
-            <div class="form-evidencia evidencia-container">
-                <div class="evidencia-header">
-                    <h3 class="evidencia-titulo">Subir Evidencia - Módulo ${moduloActual}</h3>
-                </div>
-                <div class="evidencia-content">
-                    <div class="tarea-container">
-                        <label class="evidencia-label">Tarea 1:</label>
-                        <div class="upload-controls evidencia-controls">
-                            <input type="file" id="fileInput" class="file-input evidencia-input">
-                            <div class="evidencia-buttons">
-                                <button id="btnSubir" class="sub-boton evidencia-btn evidencia-btn-subir">Subir</button>
-                                <button id="btnCancelar" class="sub-boton evidencia-btn evidencia-btn-cancelar">Cancelar</button>
-                            </div>
-                        </div>
-                        <p id="selectedFileName" class="evidencia-filename"></p>
+            <div class="form-evidencia-wrapper">
+                <div class="form-evidencia evidencia-container">
+                    <div class="evidencia-header">
+                        <h3 class="evidencia-titulo">Subir Evidencia - Módulo ${moduloActual}</h3>
                     </div>
-                    <button class="boton-volver evidencia-btn-volver" data-destino="modulo">Volver al Módulo</button>
+                    <div class="evidencia-content">
+                        <div class="tarea-container">
+                            <label class="evidencia-label">Tarea 1:</label>
+                            <div class="upload-controls evidencia-controls">
+                                <input type="file" id="fileInput" class="file-input evidencia-input">
+                                <div class="evidencia-buttons">
+                                    <button id="btnSubir" class="boton1 evidencia-btn evidencia-btn-subir">Subir</button>
+                                    <button id="btnCancelar" class="boton1 evidencia-btn evidencia-btn-cancelar">Cancelar</button>
+                                </div>
+                            </div>
+                            <p id="selectedFileName" class="evidencia-filename"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <button id="btnVolverEvidencia" class="boton1" style="margin-left: 20px;">Volver</button>
         `;
-        contenidoDinamico.innerHTML = html;
-        contenidoDinamico.style.display = 'grid';
+        
+        // Agregar estilos específicos para el formulario de evidencia
+        const styles = document.createElement('style');
+        styles.id = 'evidencia-styles';  // Añadimos un ID para poder eliminarlo después
+        styles.textContent = `
+            .form-evidencia-wrapper {
+                text-align: left;
+                max-width: 600px;
+                margin: 0;
+                padding: 20px 0 20px 20px;
+            }
+            .evidencia-container {
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .evidencia-titulo {
+                margin: 0 0 20px 0;
+                color: #333;
+            }
+            .tarea-container {
+                margin-bottom: 20px;
+            }
+            .evidencia-label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+            .evidencia-controls {
+                margin-bottom: 15px;
+            }
+            .evidencia-buttons {
+                margin-top: 15px;
+            }
+            .evidencia-btn {
+                margin-right: 10px;
+            }
+            .evidencia-filename {
+                margin-top: 10px;
+                font-size: 0.9em;
+                color: #666;
+            }
+        `;
+        document.head.appendChild(styles);
+          contenedorBtns.innerHTML = html;
+        
+        // Configurar el botón volver
+        document.getElementById('btnVolverEvidencia').addEventListener('click', () => {
+            // Remover los estilos específicos del formulario
+            const evidenciaStyles = document.getElementById('evidencia-styles');
+            if (evidenciaStyles) {
+                document.head.removeChild(evidenciaStyles);
+            }
+            mostrarMenuModulo(moduloActual);
+        });
+        
         configurarControlArchivos();
-    }
-
-    function configurarControlArchivos() {
+    }function configurarControlArchivos() {
         const fileInput = document.getElementById('fileInput');
         const btnSubir = document.getElementById('btnSubir');
         const btnCancelar = document.getElementById('btnCancelar');
         const selectedFileName = document.getElementById('selectedFileName');
 
+        // Inicialmente ocultos
         btnSubir.style.display = 'none';
         btnCancelar.style.display = 'none';
 
         fileInput.addEventListener('change', function() {
             if (this.files.length > 0) {
                 selectedFileName.textContent = 'Archivo seleccionado: ' + this.files[0].name;
-                btnSubir.style.display = 'inline-block';
-                btnCancelar.style.display = 'inline-block';
+                btnSubir.style.display = 'block';
+                btnCancelar.style.display = 'block';
+            } else {
+                limpiarSeleccionArchivo();
             }
         });
 
         btnSubir.addEventListener('click', function() {
             alert('Archivo subido exitosamente');
             limpiarSeleccionArchivo();
+            // Volver al menú del módulo después de subir
+            volverAlMenuModulo();
         });
 
-        btnCancelar.addEventListener('click', limpiarSeleccionArchivo);
+        btnCancelar.addEventListener('click', function() {
+            limpiarSeleccionArchivo();
+        });
     }
 
     function limpiarSeleccionArchivo() {
@@ -265,6 +354,11 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedFileName.textContent = '';
         btnSubir.style.display = 'none';
         btnCancelar.style.display = 'none';
+    }
+
+    // Función para volver al menú del módulo desde el formulario de evidencia
+    function volverAlMenuModulo() {
+        mostrarMenuModulo(moduloActual);
     }
 
     function mostrarContenido(keyContenido) {
@@ -296,26 +390,35 @@ document.addEventListener('DOMContentLoaded', function() {
             mostrarContenido(destino);
         }
     }
-
+    
     // Event listeners
     document.addEventListener('click', function(e) {
         const target = e.target;
 
-        // Botones de módulos
+    // Botones de módulos
         if (target.matches('.sub-boton-navegacion')) {
             const modulo = target.getAttribute('data-modulo');
-            mostrarContenidoModulo(modulo);
+            mostrarMenuModulo(modulo); // Cambiamos a mostrarMenuModulo
         }
 
         // Acciones dentro del módulo
         if (target.matches('[data-accion]')) {
             const accion = target.getAttribute('data-accion');
-            if (accion === 'evidencia') {
-                mostrarFormularioEvidencia();
-            } else if (accion === 'foro') {
-                alert('Accediendo al foro del módulo ' + moduloActual);
-            } else {
-                alert(`Acción seleccionada: ${accion}`);
+            switch(accion) {
+                case 'evidencia':
+                    mostrarFormularioEvidencia();
+                    break;
+                case 'foro':
+                    alert('Accediendo al foro del módulo ' + moduloActual);
+                    break;
+                case 'examen':
+                    alert('Accediendo al examen del módulo ' + moduloActual);
+                    break;
+                case 'material':
+                    alert('Descargando material del módulo ' + moduloActual);
+                    break;
+                default:
+                    alert(`Acción seleccionada: ${accion}`);
             }
         }
 

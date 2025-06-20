@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+.botonesS{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom: 1rem;
+
+        .botonS{
+            margin-bottom: 1.5rem;
+        }
+    
+}
+
+.botonesS{
+    @include m.desktop{
+        display: flex;
+        flex-direction: column;
+        background-color: aqua;
+        width: 65rem;
+        height: 30rem;
+
+    }
+}
