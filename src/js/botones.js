@@ -50,8 +50,14 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                 <h2></h2>
                 <p><p>
             </div>            <div class="programaliderazgo">
-                <button class="sub-boton" data-action="download" data-file-type="pdf">Reporte Insights Discovery</button>
-                <button class="sub-boton" data-action="download" data-file-type="pdf">Evaluacion test de Moss</button>
+                <button class="sub-boton accion-final-boton" 
+                        data-action="download" 
+                        data-file-type="pdf"
+                        data-api-endpoint="/api/insights-discovery">Reporte Insights Discovery</button>
+                <button class="sub-boton accion-final-boton" 
+                        data-action="download" 
+                        data-file-type="pdf"
+                        data-api-endpoint="/api/moss-test">Evaluacion test de Moss</button>
                 <button class="boton-volver" data-destino="principal">Volver al Menú Principal</button>
             </div>
         `,
@@ -267,25 +273,35 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                 // La URL del forms se configurará desde el backend
                 console.log(`Preparado para abrir Google Forms del módulo ${modulo}`);
                 alert('Redirigiendo a evaluación...');
-            }
-
-            function handleMaterialClick() {
-                alert('se descargo pdf');
+            }            function handlePdfDownload() {
+                alert('descargando pdf');
                 // TODO: Aquí irá la lógica de descarga cuando se integre con el backend
-            }            // MANEJO DE BOTONES DE ACCIÓN FINAL (ej. Examen, Material, Foro, etc.)
+                // La estructura permitirá integrar fácilmente con el backend más adelante:
+                // const apiEndpoint = boton.dataset.apiEndpoint;
+                // fetch(apiEndpoint)
+                //     .then(response => response.blob())
+                //     .then(blob => {
+                //         const url = window.URL.createObjectURL(blob);
+                //         const a = document.createElement('a');
+                //         a.href = url;
+                //         a.download = 'reporte.pdf';
+                //         a.click();
+                //     });
+            }// MANEJO DE BOTONES DE ACCIÓN FINAL (ej. Examen, Material, Foro, etc.)
             const accionFinalBotones = contenidoDinamico.querySelectorAll('.accion-final-boton');
             accionFinalBotones.forEach(boton => {
                 boton.addEventListener('click', (event) => {
                     event.preventDefault();
                     const action = boton.dataset.action;
                     const module = boton.dataset.module;
-                    
-                    switch(action) {
+                      switch(action) {
                         case 'forms':
                             handleExamenClick(module);
                             break;
                         case 'download':
-                            handleMaterialClick();
+                            if (boton.dataset.fileType === 'pdf') {
+                                handlePdfDownload();
+                            }
                             break;
                         case 'forum':
                             alert('Abriendo foro...');

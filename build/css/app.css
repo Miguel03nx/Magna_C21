@@ -909,6 +909,31 @@ label {
   }
 }
 
+.evidencia-gerencial-titulo {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.btn-gerencial-subir, .btn-gerencial-cancelar {
+  width: 12rem;
+  height: 4rem;
+  font-size: 2.2rem;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: #ffffff;
+  border-top: 3px solid #86730b;
+  border-left: 3px solid #86730b;
+  background: #e7c611;
+}
+.btn-gerencial-subir:hover, .btn-gerencial-cancelar:hover {
+  background: #fff500;
+}
+
 .titulosprogramaL h2 {
   font-size: 2rem;
   margin: 0;

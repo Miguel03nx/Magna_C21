@@ -153,6 +153,38 @@
     }
 }
 
+// TITULO SUBIR EVIDENCIA 
+.evidencia-gerencial-titulo{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: v.$blanco;
+}
+
+// botones para subir y cancelar evidencia
+.btn-gerencial-subir, .btn-gerencial-cancelar{
+    width: 12rem;
+    height: 4rem;
+    font-size: 2.2rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+     border-top: 3px solid #86730b;
+     border-left: 3px  solid #86730b;
+
+    // COLORES PARA LOS BOTONES 
+        background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+    
+}
 // PROGRAMA LIDERAZO
 
 .titulosprogramaL{ // estilos para el texto de la segunda seccion de btns
