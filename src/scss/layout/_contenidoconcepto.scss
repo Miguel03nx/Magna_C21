@@ -1,0 +1,103 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+.botones-concepto-principales{
+    // background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50rem;
+    height: 30rem;
+}
+
+.boton-concepto-principal{
+    margin-bottom: 1.5rem;
+    width: 18rem;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+    border-top: 3px solid #86730b;
+    border-left: 3px  solid #86730b;
+    // COLORES PARA LOS BOTONES 
+
+        background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+    @include m.parrafobtns;
+    
+}
+
+// BOTONES DE LOS MODULOS DE CONCEPTO
+.titulomodulos{
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+}
+
+.concepto-modulos-botones {
+    // background-color: pink;
+    display: grid;
+    @include m.grid(2, .5rem);
+    width: 50rem;
+    height: 20rem;
+}
+
+.boton-concepto-modulo, .boton-concepto-volver{
+    margin-bottom: 1.5rem;
+    width: 18rem;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+    border-top: 3px solid #86730b;
+    border-left: 3px  solid #86730b;
+    // COLORES PARA LOS BOTONES 
+
+        background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+}
+
+.concepto-opciones-botones{
+    display: flex;
+    gap: 7rem;
+
+
+    .boton-concepto-opcion{
+        margin-bottom: 2rem;
+    width: 18rem;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+    border-top: 3px solid #86730b;
+    border-left: 3px  solid #86730b;
+    // COLORES PARA LOS BOTONES 
+
+        background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+    }
+}

@@ -32,21 +32,21 @@ incluirTemplate('header');
 
             <section class="auxcontenido">
                 <section class="contenido">
-                    <h1>Concepto 21</h1>
+                    <h1 style="margin-bottom: 2rem;">Concepto 21</h1>                    <!-- Botones principales de Concepto -->
+                    <div class="botones-concepto-container" id="botonesConcepto">
+                        <div class="botones-concepto-principales">
+                            <button type="submit" class="boton-concepto boton-concepto-principal" data-tipo="gerenciales">
+                                <p>Gerenciales</p>
+                            </button>
 
-                    <!-- Botones principales -->
-                    <div class="botonesG" id="botonesConcepto">
-                        <button type="submit" class="boton1" data-tipo="gerenciales">
-                            <p>Gerenciales</p>
-                        </button>
+                            <button type="submit" class="boton-concepto boton-concepto-principal" data-tipo="supervisores">
+                                <p>Supervisores</p>
+                            </button>
 
-                        <button type="submit" class="boton1" data-tipo="supervisores">
-                            <p>Supervisores</p>
-                        </button>
-
-                        <button type="submit" class="boton1" data-tipo="foro">
-                            <p>FORO</p>
-                        </button>
+                            <button type="submit" class="boton-concepto boton-concepto-principal" data-tipo="foro">
+                                <p>FORO</p>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Contenido dinámico -->
@@ -338,139 +338,7 @@ incluirTemplate('header');
                     </template>
 
                     <style>
-                        .tabla-container {
-                            width: 100%;
-                            max-width: 1200px;
-                            margin: 0 auto;
-                            background: #fff;
-                            border-radius: 8px;
-                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                        }
-
-                        .tabla-header {
-                            padding: 1rem;
-                            background: rgb(75, 102, 129);
-                            border-bottom: 2px solid #dee2e6;
-                            border-radius: 8px 8px 0 0;
-                        }
-
-                        .tabla-titulo {
-                            margin: 0;
-                            color: #fff;
-                            font-size: 1.25rem;
-                        }
-
-                        .tabla-scroll-container {
-                            max-height: 400px;
-                            overflow-y: auto;
-                            border-radius: 0 0 8px 8px;
-                        }
-
-                        .tabla-tareas, .tabla-examenes {
-                            width: 100%;
-                            border-collapse: collapse;
-                        }
-
-                        .tabla-tareas thead, .tabla-examenes thead {
-                            position: sticky;
-                            top: 0;
-                            background: rgb(132, 167, 201);
-                            z-index: 1;
-                        }
-
-                        .tabla-tareas th, .tabla-examenes th,
-                        .tabla-tareas td, .tabla-examenes td {
-                            padding: 0.75rem;
-                            border-bottom: 1px solid #dee2e6;
-                        }
-
-                        .th-nombre {
-                            min-width: 250px;
-                            width: 30%;
-                        }
-
-                        .tabla-tareas th, .tabla-examenes th {
-                            background: rgb(130, 154, 177);
-                            text-align: left;
-                            border-bottom: 2px solid #dee2e6;
-                            color: #fff;
-                        }
-
-                        .tabla-tareas tbody tr:hover, .tabla-examenes tbody tr:hover {
-                            background-color: rgb(133, 173, 213);
-                        }
-
-                        .celda-upload {
-                            min-width: 180px;
-                        }
-
-                        .upload-container {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 0.25rem;
-                        }
-
-                        .upload-buttons {
-                            display: flex;
-                            gap: 0.25rem;
-                        }
-
-                        .btn-subir, .btn-cancelar {
-                            padding: 0.25rem 0.5rem;
-                            border-radius: 4px;
-                            cursor: pointer;
-                            font-size: 0.85rem;
-                            transition: all 0.2s ease;
-                        }
-
-                        .btn-compact {
-                            padding: 0.2rem 0.4rem;
-                            font-size: 0.8rem;
-                        }
-
-                        .btn-subir:hover, .btn-cancelar:hover {
-                            opacity: 0.9;
-                        }
-
-                        /* Estilos específicos para gerenciales */
-                        .gerencial-upload .btn-subir {
-                            background-color: #4a90e2;
-                            color: white;
-                        }
-
-                        .gerencial-upload .btn-cancelar {
-                            background-color: #e74c3c;
-                            color: white;
-                        }
-
-                        /* Estilos específicos para supervisores */
-                        .supervisor-upload .btn-subir {
-                            background-color: #2ecc71;
-                            color: white;
-                        }
-
-                        .supervisor-upload .btn-cancelar {
-                            background-color: #e67e22;
-                            color: white;
-                        }
-
-                        .tabla-scroll-container::-webkit-scrollbar {
-                            width: 8px;
-                        }
-
-                        .tabla-scroll-container::-webkit-scrollbar-track {
-                            background: rgb(153, 69, 69);
-                            border-radius: 0 0 8px 0;
-                        }
-
-                        .tabla-scroll-container::-webkit-scrollbar-thumb {
-                            background: #888;
-                            border-radius: 4px;
-                        }
-
-                        .tabla-scroll-container::-webkit-scrollbar-thumb:hover {
-                            background: #555;
-                        }
+                        
                     </style>
                 </section>
             </section>

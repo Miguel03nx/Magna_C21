@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -772,7 +773,6 @@ label {
 }
 
 .contenido {
-  background-color: aqua;
   color: white;
 }
 @media (min-width: 1200px) {
@@ -1069,69 +1069,25 @@ label {
   background: #fff500;
 }
 
-.evidencia-titulo, .gerencial-evidencia-titulo {
-  font-size: 3rem;
-}
-
-.form-evidencia, .evidencia-container {
-  width: 60rem;
-  height: 35rem;
-}
-
-.form-evidencia {
-  width: 60rem;
-  height: 35rem;
-}
-
-.gerencial-evidencia-btn, .evidencia-btn {
-  width: 15rem;
-  height: 4rem;
-  font-size: 1.8rem;
-}
-
-.modulos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.opciones-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.conceptotitulo {
-  margin: 0;
-}
-
-.tabla-titulo {
-  margin: 0;
-  font-size: 2rem;
-}
-
 .tabla-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background: #8a6e18;
+  background: #bf9d10;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: auto;
 }
 
 .tabla-header {
   padding: 1rem;
-  background: #e5be08;
+  background: #96750c;
   border-bottom: 2px solid #dee2e6;
   border-radius: 8px 8px 0 0;
 }
 
 .tabla-titulo {
   margin: 0;
-  color: #333;
+  color: #fff;
   font-size: 1.25rem;
 }
 
@@ -1141,57 +1097,101 @@ label {
   border-radius: 0 0 8px 8px;
 }
 
-.tabla-tareas {
+.tabla-tareas, .tabla-examenes {
   width: 100%;
   border-collapse: collapse;
 }
 
-.tabla-tareas thead {
+.tabla-tareas thead, .tabla-examenes thead {
   position: sticky;
   top: 0;
-  background: #aa6248;
+  background: rgb(132, 167, 201);
   z-index: 1;
 }
 
-.tabla-tareas th {
-  background: #e5be08;
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 2px solid #dee2e6;
-}
-
-.tabla-tareas td {
-  padding: 1rem;
+.tabla-tareas th, .tabla-examenes th,
+.tabla-tareas td, .tabla-examenes td {
+  padding: 0.75rem;
   border-bottom: 1px solid #dee2e6;
 }
 
-.tabla-tareas tbody tr:hover {
-  background-color: #ced557;
+.th-nombre {
+  background: #e7c611;
+  min-width: 250px;
+  width: 30%;
 }
 
-.btn-descargar {
-  background: #e5be08;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
+.tabla-tareas th, .tabla-examenes th {
+  background: #e7c611;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  color: #fff;
+}
+
+.tabla-tareas tbody tr:hover, .tabla-examenes tbody tr:hover {
+  background-color: rgb(206, 218, 79);
+}
+
+.celda-upload {
+  min-width: 180px;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.upload-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.btn-subir, .btn-cancelar {
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 }
 
-.btn-descargar:hover {
-  background: #0056b3;
+.btn-compact {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
 }
 
-/* Estilos para la barra de desplazamiento */
+.btn-subir:hover, .btn-cancelar:hover {
+  opacity: 0.9;
+}
+
+/* Estilos específicos para gerenciales */
+.gerencial-upload .btn-subir {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.gerencial-upload .btn-cancelar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Estilos específicos para supervisores */
+.supervisor-upload .btn-subir {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.supervisor-upload .btn-cancelar {
+  background-color: #e67e22;
+  color: white;
+}
+
 .tabla-scroll-container::-webkit-scrollbar {
   width: 8px;
 }
 
 .tabla-scroll-container::-webkit-scrollbar-track {
-  background: #957c2e;
+  background: rgb(246, 244, 244);
   border-radius: 0 0 8px 0;
 }
 
@@ -1202,4 +1202,88 @@ label {
 
 .tabla-scroll-container::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.botones-concepto-principales {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50rem;
+  height: 30rem;
+}
+
+.boton-concepto-principal {
+  margin-bottom: 1.5rem;
+  width: 18rem;
+  height: 5rem;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  cursor: pointer;
+  color: #ffffff;
+  border-top: 3px solid #86730b;
+  border-left: 3px solid #86730b;
+  background: #e7c611;
+}
+.boton-concepto-principal:hover {
+  background: #fff500;
+}
+.boton-concepto-principal p {
+  color: #ffffff;
+  margin: 0;
+}
+
+.titulomodulos {
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+}
+
+.concepto-modulos-botones {
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  width: 50rem;
+  height: 20rem;
+}
+
+.boton-concepto-modulo, .boton-concepto-volver {
+  margin-bottom: 1.5rem;
+  width: 18rem;
+  height: 5rem;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  cursor: pointer;
+  color: #ffffff;
+  border-top: 3px solid #86730b;
+  border-left: 3px solid #86730b;
+  background: #e7c611;
+}
+.boton-concepto-modulo:hover, .boton-concepto-volver:hover {
+  background: #fff500;
+}
+
+.concepto-opciones-botones {
+  display: flex;
+  gap: 7rem;
+}
+.concepto-opciones-botones .boton-concepto-opcion {
+  margin-bottom: 2rem;
+  width: 18rem;
+  height: 5rem;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  cursor: pointer;
+  color: #ffffff;
+  border-top: 3px solid #86730b;
+  border-left: 3px solid #86730b;
+  background: #e7c611;
+}
+.concepto-opciones-botones .boton-concepto-opcion:hover {
+  background: #fff500;
 }
