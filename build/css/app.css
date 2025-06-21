@@ -959,18 +959,71 @@ label {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 65rem;
+  height: 30rem;
 }
-.botonesS .botonS {
-  margin-bottom: 1.5rem;
+
+.boton-supervisor, .boton-supervisor-volver {
+  width: 13rem;
+  height: 4rem;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 2rem;
+  border-style: none;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  color: #ffffff;
+  border-top: 3px solid #86730b;
+  border-left: 3px solid #86730b;
+  background: #e7c611;
+}
+.boton-supervisor:hover, .boton-supervisor-volver:hover {
+  background: #fff500;
+}
+@media (min-width: 712px) {
+  .boton-supervisor, .boton-supervisor-volver {
+    width: 24rem;
+    height: 6rem;
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .boton-supervisor, .boton-supervisor-volver {
+    text-align: center;
+    width: 18rem;
+    height: 5.5rem;
+    font-size: 1.5rem;
+  }
+  .boton-supervisor p, .boton-supervisor-volver p {
+    color: #ffffff;
+    margin: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .boton-supervisor, .boton-supervisor-volver {
+    width: 22rem;
+    height: 5.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ffffff;
+  }
+  .boton-supervisor p, .boton-supervisor-volver p {
+    color: #ffffff;
+  }
+}
+
+.boton-supervisor-modulo {
+  width: 12rem;
+  order: 1;
 }
 
 @media (min-width: 1200px) {
-  .botonesS {
-    display: flex;
-    flex-direction: column;
-    width: 65rem;
-    height: 30rem;
+  .contenedor-modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 

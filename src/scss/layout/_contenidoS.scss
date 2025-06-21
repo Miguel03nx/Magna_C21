@@ -3,25 +3,77 @@
 @use 'base/mixins' as m;
 
 .botonesS{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-bottom: 1rem;
-
-        .botonS{
-            margin-bottom: 1.5rem;
-        }
-    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-wrap: wrap; 
+    // background-color: pink;
+    width: 65rem;
+    height: 30rem;
+   
 }
 
-.botonesS{
+
+// BOTONES SUPERVISORES
+.boton-supervisor, .boton-supervisor-volver{
+    width: 13rem;
+    height: 4rem;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-style: none;
+    margin-bottom: .5rem;
+    // border: 2px solid #034859;
+    cursor: pointer;
+    color: v.$blanco;
+     border-top: 3px solid #86730b;
+     border-left: 3px  solid #86730b;
+    // COLORES PARA LOS BOTONES 
+
+        background: #e7c611;
+        // border-color: v.$negro;
+        // border-width: .5rem;
+         &:hover {
+        background: #fff500;
+            }
+
+            @media (min-width: 712px) {
+        // @include m.grid(2, 2rem);
+        width: 24rem;
+        height: 6rem;
+        font-size: 1.5rem;
+    }
+
+    
+    @media (min-width: 768px) {
+        @include m.parrafobtns;
+        text-align: center;
+        width: 18rem;
+        height: 5.5rem;
+        font-size: 1.5rem;
+        // padding: 2rem;
+     }
+
+      @include m.desktop{ // $tablet: 768px;
+        p{
+            color: v.$blanco;
+        }
+     width: 22rem;
+      height: 5.5rem;
+      font-size: 1.5rem;
+      text-align: center;
+      color: v.$blanco;
+     }
+}
+
+.boton-supervisor-modulo{
+    width: 12rem;
+    order: 1;
+}
+
+.contenedor-modulos-grid{
     @include m.desktop{
-        display: flex;
-        flex-direction: column;
-        // background-color: pink;
-        width: 65rem;
-        height: 30rem;
+        @include m.grid(2, 2rem);
     }
 }
-
-

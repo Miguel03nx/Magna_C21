@@ -42,7 +42,8 @@ incluirTemplate('header');
 
                     <h1 style="margin-bottom: 1rem; margin-top: 1rem;">Área de Supervisión</h1>
 
-                    <!-- seccion de botones para supervisiones -->                    <div class="botonesS" id="botonesSupervisores"> <!-- div que contiene los botones -->
+                    <!-- seccion de botones para supervisiones -->                    
+                     <div class="botonesS" id="botonesSupervisores"> <!-- div que contiene los botones -->
 
                         <button type="submit" class="boton-supervisor boton-supervisor-menu" data-contenido="calendario">
                             <p>Calendario</p>
@@ -64,6 +65,7 @@ incluirTemplate('header');
             </section>
             
         </section>
-    </section>    <script src="src/js/botonessupervisiones.js"></script>
+    </section> 
+    <script src="src/js/botonessupervisiones.js"></script>
 </body>
 

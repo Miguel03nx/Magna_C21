@@ -64,25 +64,38 @@ function mostrarMenuEvaluacionLiderazgo() {
 }
 
 // Función para mostrar el menú de Programa de Liderazgo
+// Función para mostrar el menú de Programa de Liderazgo
 function mostrarMenuProgramaLiderazgo() {
-    contenedorBtns.innerHTML = "";
+    contenedorBtns.innerHTML = ""; // Limpia el contenido actual
+
+    // CREAMOS UN NUEVO DIV PARA LOS BOTONES DE MÓDULOS
+    const divModulos = document.createElement("div");
+    divModulos.classList.add("contenedor-modulos-grid"); // Le asignamos una clase para estilos Grid
+
     const modulos = ["Módulo 1", "Módulo 2", "Módulo 3", "Módulo 4", "Módulo 5", "Módulo 6", "volver"];
-    
+
     modulos.forEach(modulo => {
         const nuevoBoton = document.createElement("button");
         nuevoBoton.classList.add("boton-supervisor", "boton-supervisor-modulo");
         nuevoBoton.textContent = modulo;
-        
+
         if (modulo === "volver") {
             nuevoBoton.addEventListener("click", mostrarMenuPrincipal);
+            // Si el botón "volver" no debe estar en el grid, lo puedes añadir directamente a contenedorBtns
+            // o darle estilos específicos para que no participe en el grid (ej. width: 100%)
+            contenedorBtns.appendChild(nuevoBoton); // Añadimos el botón "volver" directamente al contenedorBtns
         } else {
             nuevoBoton.addEventListener("click", () => {
                 mostrarMenuModulo(modulo);
             });
+            divModulos.appendChild(nuevoBoton); // Añadimos los botones de módulo al nuevo divModulos
         }
-        
-        contenedorBtns.appendChild(nuevoBoton);
     });
+
+    // Añadimos el nuevo div con los botones de módulo al contenedorBtns
+    if (divModulos.children.length > 0) { // Asegurarse de que haya módulos antes de añadir el div
+        contenedorBtns.appendChild(divModulos);
+    }
 }
 
 // Función para mostrar el menú de cada módulo
