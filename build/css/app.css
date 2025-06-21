@@ -965,6 +965,11 @@ label {
   height: 30rem;
 }
 
+.evidencia-titulo {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
 .boton-supervisor, .boton-supervisor-volver {
   width: 13rem;
   height: 4rem;

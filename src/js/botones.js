@@ -49,10 +49,9 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
             <div class="titulosprogramaL personalidad">
                 <h2></h2>
                 <p><p>
-            </div>
-            <div class="programaliderazgo ">
-                <button class="sub-boton">Reporte Insights Discovery</button>
-                <button class="sub-boton">Evaluacion test de Moss </button>
+            </div>            <div class="programaliderazgo">
+                <button class="sub-boton" data-action="download" data-file-type="pdf">Reporte Insights Discovery</button>
+                <button class="sub-boton" data-action="download" data-file-type="pdf">Evaluacion test de Moss</button>
                 <button class="boton-volver" data-destino="principal">Volver al Menú Principal</button>
             </div>
         `,
@@ -104,13 +103,12 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
             <button class="sub-boton accion-final-boton"
                     data-action="forum"
                     data-module="1">FORO</button>
-            
-            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
-            <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+              <button class="sub-boton accion-final-boton" data-action="evidencia" data-module="1">EVIDENCIA</button>
+            <button class="boton-volver" data-destino="programa-liderazgo">Volver al Programa de Liderazgo</button>
             </div>
         `,
 
-        // MÓDULO 2: Similar configuración al Módulo 1
+        // MÓDULO 2: Similar configuraciónal Módulo 1
         'modulo2': `
              <div class="titulosprogramaL modulog">
             <h3>Contenido del Módulo 2</h3>
@@ -127,13 +125,14 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                     data-file-type="pdf"
                     data-module="2"
                     data-api-endpoint="/api/material/module2">Material</button>
-            
-            <button class="sub-boton accion-final-boton"
+              <button class="sub-boton accion-final-boton"
                     data-action="forum"
-                    data-module="2">Foro</button>
+                    data-module="2">FORO</button>
             
-            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
-            <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+            <button class="sub-boton accion-final-boton" 
+                    data-action="evidencia" 
+                    data-module="2">EVIDENCIA</button>
+            <button class="boton-volver" data-destino="programa-liderazgo">Volver al Programa de Liderazgo</button>
             </div>
         `,
 
@@ -154,12 +153,13 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                     data-file-type="pdf"
                     data-module="3"
                     data-api-endpoint="/api/material/module3">Material</button>
-            
-            <button class="sub-boton accion-final-boton"
+              <button class="sub-boton accion-final-boton"
                     data-action="forum"
-                    data-module="3">Foro</button>
-            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
-            <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+                    data-module="3">FORO</button>
+            <button class="sub-boton accion-final-boton" 
+                    data-action="evidencia" 
+                    data-module="3">EVIDENCIA</button>
+            <button class="boton-volver" data-destino="programa-liderazgo">Volver al Programa de Liderazgo</button>
             </div>
         `,
 
@@ -180,38 +180,25 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
                     data-file-type="pdf"
                     data-module="4"
                     data-api-endpoint="/api/material/module4">Material</button>
-            
-            <button class="sub-boton accion-final-boton"
+              <button class="sub-boton accion-final-boton"
                     data-action="forum"
-                    data-module="4">Foro</button>
-            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
-            <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+                    data-module="4">FORO</button>
+            <button class="sub-boton accion-final-boton" 
+                    data-action="evidencia" 
+                    data-module="4">EVIDENCIA</button>
+            <button class="boton-volver" data-destino="programa-liderazgo">Volver al Programa de Liderazgo</button>
             </div>
-        `,
-
-        // MÓDULO 5: Similar configuración
+        `,// MÓDULO 5: Similar configuración
         'modulo5': `
-             <div class="titulosprogramaL modulog">
-            <h3>Contenido del Módulo 5</h3>
+            <div class="titulosprogramaL modulog">
+                <h3>Contenido del Módulo 5</h3>
             </div>
-
             <div class="contenidoModulo">
-            <button class="sub-boton accion-final-boton"
-                    data-action="forms"
-                    data-module="5"
-                    data-api-endpoint="/api/exam/module5">Examen</button>
-            
-            <button class="sub-boton accion-final-boton"
-                    data-action="download"
-                    data-file-type="pdf"
-                    data-module="5"
-                    data-api-endpoint="/api/material/module5">Material</button>
-            
-            <button class="sub-boton accion-final-boton"
-                    data-action="forum"
-                    data-module="5">Foro</button>
-            <button class="sub-boton accion-final-boton">EVIDENCIA</button>
-            <button class="boton-volver" data-destino="programa-liderazgo">Volver a Módulos</button>
+                <button class="sub-boton accion-final-boton" data-action="forms" data-module="5" data-api-endpoint="/api/exam/module5">Examen</button>
+                <button class="sub-boton accion-final-boton" data-action="download" data-file-type="pdf" data-module="5" data-api-endpoint="/api/material/module5">Material</button>
+                <button class="sub-boton accion-final-boton" data-action="forum" data-module="5">FORO</button>
+                <button class="sub-boton accion-final-boton" data-action="evidencia" data-module="5">EVIDENCIA</button>
+                <button class="boton-volver" data-destino="programa-liderazgo">Volver al Programa de Liderazgo</button>
             </div>
         `
 
@@ -242,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
             // Inyecta el HTML correspondiente en el contenedor dinámico
             contenidoDinamico.innerHTML = contenidos[keyContenido];
             // Asegura que el contenedor dinámico sea visible Y MANTIENE EL DISPLAY EN GRID / block
-            // ESTO HACE QUE LOS BOTONES DE LOS SIGUIENTES SUBMENU SE CAMBIEN A grid
+            // ESTO HACE QUE LOS BOTONES DE LOS SIGUIENTES SUBMENU SE CAMBIE A grid
             contenidoDinamico.style.display = 'grid';
 
             // ACTUALIZAR EL ESTADO DE NAVEGACIÓN: QUÉ NIVEL Y QUIÉN ES EL PADRE
@@ -285,29 +272,29 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
             function handleMaterialClick() {
                 alert('se descargo pdf');
                 // TODO: Aquí irá la lógica de descarga cuando se integre con el backend
-            }
-
-            // MANEJO DE BOTONES DE ACCIÓN FINAL (ej. Examen, Material, Foro, etc.)
+            }            // MANEJO DE BOTONES DE ACCIÓN FINAL (ej. Examen, Material, Foro, etc.)
             const accionFinalBotones = contenidoDinamico.querySelectorAll('.accion-final-boton');
             accionFinalBotones.forEach(boton => {
                 boton.addEventListener('click', (event) => {
-                    const accion = event.target.textContent.toLowerCase();
-                    const modulo = keyContenido; // Obtiene el módulo actual
-
-                    // Manejo específico según el tipo de botón
-                    switch(accion) {
-                        case 'examen':
-                            handleExamenClick(modulo);
+                    event.preventDefault();
+                    const action = boton.dataset.action;
+                    const module = boton.dataset.module;
+                    
+                    switch(action) {
+                        case 'forms':
+                            handleExamenClick(module);
                             break;
-                        case 'material':
+                        case 'download':
                             handleMaterialClick();
                             break;
-                        case 'foro':
-                            // El botón FORO mantiene su comportamiento actual
-                            alert(`Has hecho clic en: ${event.target.textContent}`);
+                        case 'forum':
+                            alert('Abriendo foro...');
+                            break;
+                        case 'evidencia':
+                            mostrarFormularioEvidencia(module);
                             break;
                         default:
-                            alert(`Has hecho clic en: ${event.target.textContent}`);
+                            console.log('Acción no reconocida:', action);
                     }
                 });
             });
@@ -371,5 +358,76 @@ document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el co
     // OPCIONAL: Cargar contenido por defecto si lo deseas
     // if (botonesPrincipales.length > 0) {
     //     botonesPrincipales[0].click(); // Simula un clic en el primer botón al cargar
-    // }
+    // }    // Función para mostrar el formulario de evidencia
+    function mostrarFormularioEvidencia(modulo) {
+        const html = `
+            <div class="evidencia-gerencial-container">
+                <div class="evidencia-gerencial-header">
+                    <h3 class="evidencia-gerencial-titulo">Subir Evidencia - Módulo ${modulo}</h3>
+                </div>
+                <div class="evidencia-gerencial-content">
+                    <div class="evidencia-gerencial-form">
+                        <label class="evidencia-gerencial-label">Seleccionar archivo:</label>
+                        <div class="evidencia-gerencial-upload">
+                            <input type="file" id="fileInputGerencial" class="evidencia-gerencial-input" />
+                            <div class="evidencia-gerencial-buttons" style="display: none;">
+                                <button id="btnSubirGerencial" class="btn-gerencial-subir">Subir</button>
+                                <button id="btnCancelarGerencial" class="btn-gerencial-cancelar">Cancelar</button>
+                            </div>
+                        </div>
+                        <p id="fileNameGerencial" class="evidencia-gerencial-filename"></p>
+                    </div>
+                </div>
+                <div class="evidencia-gerencial-footer">
+                    <button class="boton-volver" data-destino="modulo${modulo}">Volver al Módulo</button>
+                </div>
+            </div>
+        `;
+        contenidoDinamico.innerHTML = html;
+        setupFormularioEvidencia(modulo);
+        
+        // Configurar el botón volver
+        const botonVolver = contenidoDinamico.querySelector('.boton-volver');
+        if (botonVolver) {
+            botonVolver.addEventListener('click', () => mostrarContenido('modulo' + modulo));
+        }
+    }
+
+    // Función para configurar el comportamiento del formulario de evidencia
+    function setupFormularioEvidencia(modulo) {
+        const fileInput = document.getElementById('fileInputGerencial');
+        const btnSubir = document.getElementById('btnSubirGerencial');
+        const btnCancelar = document.getElementById('btnCancelarGerencial');
+        const fileName = document.getElementById('fileNameGerencial');
+        const buttonsContainer = document.querySelector('.evidencia-gerencial-buttons');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileName.textContent = 'Archivo seleccionado: ' + this.files[0].name;
+                buttonsContainer.style.display = 'flex';
+            } else {
+                limpiarFormularioEvidencia();
+            }
+        });
+
+        btnSubir.addEventListener('click', function() {
+            // Aquí se implementará la lógica de subida al backend
+            alert('Archivo subido exitosamente');
+            limpiarFormularioEvidencia();
+            mostrarContenido('modulo' + modulo);
+        });
+
+        btnCancelar.addEventListener('click', limpiarFormularioEvidencia);
+    }
+
+    // Función para limpiar el formulario de evidencia
+    function limpiarFormularioEvidencia() {
+        const fileInput = document.getElementById('fileInputGerencial');
+        const fileName = document.getElementById('fileNameGerencial');
+        const buttonsContainer = document.querySelector('.evidencia-gerencial-buttons');
+        
+        fileInput.value = '';
+        fileName.textContent = '';
+        buttonsContainer.style.display = 'none';
+    }
 });
