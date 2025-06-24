@@ -52,13 +52,12 @@ incluirTemplate('header');
                     <!-- Contenido dinámico -->
                     <div class="contenido-dinamico" id="contenidoDinamico">
                         <p>Selecciona una opción del menú superior</p>
-                    </div>
-
-                    <!-- Template para la tabla de tareas -->
-                    <template id="tabla-tareas-template">
+                    </div>                    <!-- Template para la tabla de tareas de Gerenciales -->
+                    <template id="tabla-tareas-gerenciales-template">
                         <div class="tabla-container">
                             <div class="tabla-header">
-                                <h2 class="tabla-titulo">Lista de Tareas</h2>
+                                <h2 class="tabla-titulo">Lista de Tareas - Gerenciales</h2>
+                                <span class="tipo-tabla">Tabla específica para Gerenciales</span>
                             </div>
                             <div class="tabla-scroll-container">
                                 <table class="tabla-tareas">
@@ -135,13 +134,12 @@ incluirTemplate('header');
                                 </table>
                             </div>
                         </div>
-                    </template>
-
-                    <!-- Template para la tabla de exámenes gerenciales -->
+                    </template>                    <!-- Template para la tabla de exámenes gerenciales -->
                     <template id="tabla-examenes-gerenciales-template">
-                        <div class="tabla-container">
+                        <div class="tabla-container tabla-gerenciales">
                             <div class="tabla-header">
-                                <h2 class="tabla-titulo">Gestión de material - Gerenciales</h2>
+                                <h2 class="tabla-titulo">Gestión de Exámenes - Gerenciales</h2>
+                                <span class="tipo-tabla tipo-gerencial">Vista Gerencial</span>
                             </div>
                             <div class="tabla-scroll-container">
                                 <table class="tabla-examenes">
@@ -235,13 +233,12 @@ incluirTemplate('header');
                                 </table>
                             </div>
                         </div>
-                    </template>
-
-                    <!-- Template para la tabla de exámenes supervisores -->
+                    </template>                    <!-- Template para la tabla de exámenes supervisores -->
                     <template id="tabla-examenes-supervisores-template">
-                        <div class="tabla-container">
+                        <div class="tabla-container tabla-supervisores">
                             <div class="tabla-header">
-                                <h2 class="tabla-titulo">Gestión de material - Supervisores</h2>
+                                <h2 class="tabla-titulo">Gestión de Exámenes - Supervisores</h2>
+                                <span class="tipo-tabla tipo-supervisor">Vista Supervisor</span>
                             </div>
                             <div class="tabla-scroll-container">
                                 <table class="tabla-examenes">
@@ -337,7 +334,47 @@ incluirTemplate('header');
                         </div>
                     </template>
 
-                    <style>
+                    <!-- Template para la tabla de tareas de Supervisores -->
+                    <template id="tabla-tareas-supervisores-template">
+                        <div class="tabla-container">
+                            <div class="tabla-header">
+                                <h2 class="tabla-titulo">Lista de Tareas - Supervisores</h2>
+                                <span class="tipo-tabla">Tabla específica para Supervisores</span>
+                            </div>
+                            <div class="tabla-scroll-container">
+                                <table class="tabla-tareas tabla-tareas-supervisores">
+                                    <thead>
+                                        <tr>
+                                            <th class="th-nombre">Nombre del Supervisor</th>
+                                            <th>Tarea</th>
+                                            <th>Módulo</th>
+                                            <th>Fecha Límite</th>
+                                            <th>Estado</th>
+                                            <th>Archivo</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>José Antonio Ramírez</td>
+                                            <td>Plan de supervisión</td>
+                                            <td>Módulo 1</td>
+                                            <td>2025-07-01</td>
+                                            <td>Pendiente</td>
+                                            <td>plan_supervision.pdf</td>
+                                            <td>
+                                                <button class="btn-descargar supervisor-btn" title="Descargar tarea">
+                                                    <i class="fas fa-download"></i> Descargar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <!-- Más filas de ejemplo para supervisores -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </template>          
+                              <style>
                         
                     </style>
                 </section>

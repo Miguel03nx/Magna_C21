@@ -45,7 +45,7 @@
 .concepto-modulos-botones {
     // background-color: pink;
     display: grid;
-    @include m.grid(2, .5rem);
+    @include m.grid(3, .5rem);
     width: 50rem;
     height: 20rem;
 }
@@ -100,4 +100,8 @@
         background: #fff500;
             }
     }
+}
+
+.boton-concepto-calendario{
+    // margin-left: 10rem;
 }

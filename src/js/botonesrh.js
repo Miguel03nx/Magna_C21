@@ -1,13 +1,8 @@
 
-// seleccionando el contenedor de los botones 
-
-const contenedorBtns = document.querySelector("#botonesRH");
-
-// seleccionando los botones de gerenciales y de supervisores
-
-const btnGerencial = document.querySelector("#boton-gerencial");
-
-const btnSupervisor = document.querySelector("#boton-supervisor");
+// Sección de RRHH temporalmente deshabilitada
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Sección de RRHH temporalmente deshabilitada');
+});
 
 // creando el event listener de click del boton de gerencial
 // mostrarSubMenuGerenciales es el nombre de la funcion que se va a crear 

@@ -1234,6 +1234,86 @@ label {
   background: #555;
 }
 
+/* Estilos específicos para diferenciar las tablas */
+.tipo-tabla {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/* Estilos específicos para tablas de exámenes */
+.tabla-gerenciales {
+  border: 2px solid #95a414;
+  background-color: #8e8b23;
+}
+
+.tabla-supervisores {
+  border: 2px solid #2e7d32;
+  background-color: #8e8b23;
+}
+
+.tipo-gerencial {
+  background-color: #1976d2;
+  color: white;
+}
+
+.tipo-supervisor {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* Estilos para los botones de exámenes */
+.vista-examenes-gerencial .btn-subir {
+  background-color: #1976d2;
+  color: white;
+}
+
+.vista-examenes-supervisor .btn-subir {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* Estilos para los headers de las tablas */
+.tabla-gerenciales thead th {
+  background-color: #8e8b23;
+  color: #1976d2;
+}
+
+.tabla-supervisores thead th {
+  background-color: #8e8b23;
+  color: #2e7d32;
+}
+
+.tipo-indicador {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  background-color: #8e8b23;
+}
+
+.vista-gerencial .tipo-indicador {
+  background-color: #8e8b23;
+  color: #1976d2;
+}
+
+.vista-supervisor .tipo-indicador {
+  background-color: #8e8b23;
+  color: #2e7d32;
+}
+
+.tabla-tareas-gerenciales {
+  border: 2px solid #1976d2;
+}
+
+.tabla-tareas-supervisores {
+  border: 2px solid #2e7d32;
+}
+
 .botones-concepto-principales {
   display: flex;
   flex-direction: column;
@@ -1272,7 +1352,7 @@ label {
 .concepto-modulos-botones {
   display: grid;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   width: 50rem;
   height: 20rem;
