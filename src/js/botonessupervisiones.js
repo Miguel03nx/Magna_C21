@@ -1,17 +1,43 @@
-// Elementos del DOM
-const contenedorBtns = document.querySelector("#botonesSupervisores");
-const contenidoDinamico = document.querySelector('.contenido-dinamico');
+/**
+ * Módulo de gestión de Supervisiones
+ * @description
+ * Este módulo maneja toda la interfaz y funcionalidad de la sección
+ * de Supervisiones, incluyendo la navegación entre menús, la gestión
+ * de contenido dinámico y las acciones específicas de supervisión.
+ */
 
-// Variables globales
+/**
+ * Referencias a elementos del DOM
+ */
+const contenedorBtns = document.querySelector("#botonesSupervisores");      // Contenedor principal de botones
+const contenidoDinamico = document.querySelector('.contenido-dinamico');    // Área de contenido dinámico
+
+/**
+ * Variables de estado
+ * @type {string} menuPrincipalHTML - Almacena el HTML del menú principal
+ * @type {string} moduloActual - Almacena el módulo actualmente seleccionado
+ */
 let menuPrincipalHTML = '';
 let moduloActual = '';
 
-// Función para guardar el menú principal
+/**
+ * Guarda el estado del menú principal
+ * @description
+ * Almacena el HTML del menú principal para poder restaurarlo
+ * cuando el usuario quiera volver desde cualquier submenú
+ */
 function guardarMenuPrincipal() {
     menuPrincipalHTML = contenedorBtns.innerHTML;
 }
 
-// Función para mostrar el menú principal
+/**
+ * Restaura y muestra el menú principal
+ * @description
+ * Esta función:
+ * 1. Restaura el HTML del menú principal
+ * 2. Ajusta la visibilidad de los contenedores
+ * 3. Reconfigura los event listeners
+ */
 function mostrarMenuPrincipal() {
     contenedorBtns.innerHTML = menuPrincipalHTML;
     contenidoDinamico.style.display = 'none';
@@ -19,12 +45,20 @@ function mostrarMenuPrincipal() {
     agregarEventListeners();
 }
 
-// Función para agregar event listeners a los botones
+/**
+ * Configura los event listeners para todos los botones
+ * @description
+ * Esta función:
+ * 1. Busca todos los botones de supervisor
+ * 2. Asigna los manejadores de eventos según el tipo de contenido
+ * 3. Configura la navegación a las diferentes secciones
+ */
 function agregarEventListeners() {
     document.querySelectorAll('.boton-supervisor').forEach(boton => {
         boton.addEventListener('click', function() {
             const contenido = this.getAttribute('data-contenido');
             
+            // Navegar a la sección correspondiente
             switch(contenido) {
                 case 'evaluacion-liderazgo':
                     mostrarMenuEvaluacionLiderazgo();
@@ -40,7 +74,15 @@ function agregarEventListeners() {
     });
 }
 
-// Función para mostrar el menú de Evaluación de Liderazgo
+/**
+ * Muestra el menú de Evaluación de Liderazgo
+ * @description
+ * Esta función:
+ * 1. Limpia el contenedor de botones
+ * 2. Genera nuevos botones para las opciones de evaluación
+ * 3. Configura las acciones específicas de evaluación
+ * 4. Incluye la opción de volver al menú principal
+ */
 function mostrarMenuEvaluacionLiderazgo() {
     contenedorBtns.innerHTML = "";
     const opciones = ["Descargar aquí", "volver"];

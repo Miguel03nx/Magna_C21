@@ -1,15 +1,24 @@
 
-// Sección de RRHH temporalmente deshabilitada
+/**
+ * Módulo de Recursos Humanos (RRHH)
+ * @description
+ * Este módulo maneja la funcionalidad de la sección de RRHH,
+ * incluyendo la navegación y gestión de módulos tanto para
+ * usuarios Gerenciales como Supervisores.
+ * 
+ * Estado: Temporalmente deshabilitado
+ */
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Sección de RRHH temporalmente deshabilitada');
 });
 
-// creando el event listener de click del boton de gerencial
-// mostrarSubMenuGerenciales es el nombre de la funcion que se va a crear 
-// btnGerencial.addEventListener("click", mostrarSubMenuGerenciales); 
-// btnSupervisor.addEventListener("click", mostrarSubMenuSupervisores); 
-
-btnGerencial.addEventListener("click", () => { // el arreglo crea los nuevos botones es uno de los parametros de la funcion, "Gerenciales es el boton que va a dar el submenu despues"
+/**
+ * Event Listeners para los botones principales
+ * @description
+ * Configura los botones de Gerenciales y Supervisores para mostrar
+ * sus respectivos submenús cuando son clickeados
+ */
+btnGerencial.addEventListener("click", () => {
     mostrarSubMenu("Gerenciales", ["modulo 1", "modulo 2", "modulo 3", "volver"]);
 });
 
@@ -18,28 +27,36 @@ btnSupervisor.addEventListener("click", () => {
 });
 
 
-// esta funcion se ejecutara cuando se haga click en el boton de "Gerenciales"
-function mostrarSubMenu(titulo, modulos){ // estos son los paramatros 
-    // console.log("hiciste click en gerenciales")
-
-    // con esto se limpia el contenedor principal al momento de que le damos click a gerenciales 
+/**
+ * Genera y muestra el submenú de módulos
+ * @param {string} titulo - Tipo de usuario ('Gerenciales' o 'Supervisores')
+ * @param {string[]} modulos - Array con los nombres de los módulos a mostrar
+ * @description
+ * Esta función:
+ * 1. Limpia el contenedor de botones actual
+ * 2. Crea nuevos botones para cada módulo
+ * 3. Configura los event listeners para cada botón
+ * 4. Maneja la navegación y la lógica de "volver"
+ */
+function mostrarSubMenu(titulo, modulos) {
+    // Limpiar el contenedor de botones
     contenedorBtns.innerHTML = "";
 
+    // Crear y configurar los botones para cada módulo
     modulos.forEach(nombreModulo => {
-        // console.log(nombreModulo);
-        const nuevoBoton = document.createElement("button") // asi creamos un boton <button></button>
-        nuevoBoton.classList.add("boton1"); // le agregamos la clase para que tenga los mismos estilos que los primeros 
-        nuevoBoton.textContent = nombreModulo; // con esto se le agrega el nombre (texto visible) 
+        const nuevoBoton = document.createElement("button");
+        nuevoBoton.classList.add("boton1");
+        nuevoBoton.textContent = nombreModulo;
 
-        // si el boton es "volver", que regrese al menu principal 
-        if(nombreModulo === "volver"){
+        // Configurar el comportamiento del botón
+        if(nombreModulo === "volver") {
+            // Botón volver: regresa al menú principal
             nuevoBoton.addEventListener("click", mostrarMenuPrincipal);
-        } else{
-            // si es uno de los modulos, mostramos un mensaje (o haces otra accion despues)
-            nuevoBoton.addEventListener("click", () =>{
-                // aqui se muestra la opcion que escoge cada titulo por ej que escogiste el gerencial y que modulo fue si el 1, 2 etc
-                console.log(`${titulo} eligio ${nombreModulo}`);
-                if (nombreModulo === "modulo 1"){
+        } else {
+            // Botones de módulo: muestran contenido específico
+            nuevoBoton.addEventListener("click", () => {
+                console.log(`${titulo} eligió ${nombreModulo}`);
+                if (nombreModulo === "modulo 1") {
                     mostrarSubMenuModulo1();
                 }
             });

@@ -1,5 +1,6 @@
 <?php 
 require 'includes/funciones.php';
+require 'db.php';
 
 incluirTemplate('header'); 
 

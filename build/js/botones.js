@@ -1,48 +1,91 @@
-document.addEventListener('DOMContentLoaded', () => { // este DOM hace que el codigo JS se ejecute hasta que la pagina este totalmente cargada
+/**
+ * Módulo de gestión de interfaz principal para Gerenciales
+ * @description
+ * Este módulo maneja toda la navegación y funcionalidad de la interfaz
+ * principal para usuarios Gerenciales, incluyendo:
+ * - Navegación entre niveles
+ * - Gestión de contenido dinámico
+ * - Manejo de descargas y acciones especiales
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * Referencias principales a elementos del DOM
+     */
+    // Contenedor principal de botones de navegación
+    const botonesPrincipalesContainer = document.querySelector('.botonesG');
+    
+    // Lista de todos los botones principales de navegación
+    const botonesPrincipales = document.querySelectorAll('.botonesG .boton1');
+    
+    // Contenedor para el contenido dinámico que cambia según la navegación
+    const contenidoDinamico = document.querySelector('.contenido-dinamico');
 
-    // estos const son los que seleccionan los id de los elementos html como lo son los btns
-    const botonesPrincipalesContainer = document.querySelector('.botonesG'); // Referencia al contenedor de botones principales
-    const botonesPrincipales = document.querySelectorAll('.botonesG .boton1');  // NodeList de los botones principales individuales, esto devuelve todos los elementos con la clase boton1  el nodelist ayuda a iterar con un foreach mas adelante en el codigo 
-
-    const contenidoDinamico = document.querySelector('.contenido-dinamico'); // Contenedor donde se inyectará el HTML dinámico Selecciona el <div> donde se va a inyectar todo el contenido que cambie dinámicamente. Es el "escenario" donde se mostrarán los módulos, calendarios, reportes, etc.
 
 
-
-    // NUEVA VARIABLE PARA GESTIONAR EL ESTADO DE NAVEGACIÓN
+    /**
+     * Estado de navegación global
+     * @type {Object}
+     * @property {number} nivel - Nivel actual de navegación:
+     *                           0: Menú Principal
+     *                           1: Primer nivel (Calendario, Reporte, Lista de Módulos)
+     *                           2: Segundo nivel (Contenido específico de módulo)
+     * @property {string|null} idPrevio - ID del contenido anterior para navegación
+     */
     let estadoNavegacionActual = {
-        nivel: 0, // 0 = Menú Principal, 1 = Contenido de Nivel 1, 2 = Contenido de Nivel 2
-        /*0: Significa que está viendo los botones del menú principal.
-        1: Significa que está viendo el contenido de la primera capa (ej. Calendario, Reporte, o la lista de Módulos del Programa de Liderazgo).
-        2: Significa que está viendo el contenido de la segunda capa (ej. el contenido de un Módulo individual como "Módulo 1"). */
-        idPrevio: null // Almacena el ID del contenido que nos llevó al nivel actual
-        /* idPrevio: Almacena la clave del contenido desde el cual se navegó al nivel actual. Esto es fundamental para el botón "Volver", ya que le permite saber a qué vista anterior debe regresar. Por ejemplo, si estás en modulo1, su idPrevio será programa-liderazgo. Si estás en programa-liderazgo, su idPrevio será principal (que significa el menú inicial).        */
-    };    // Función para manejar la descarga del calendario
+        nivel: 0,
+        idPrevio: null
+    };
+
+    /**
+     * Maneja la descarga del calendario
+     * @returns {boolean} false - Para prevenir comportamiento por defecto
+     * @description
+     * Actualmente muestra una alerta, pero está preparado para
+     * integrarse con la funcionalidad de descarga del backend
+     */
     function descargarCalendario() {
         alert('Descargando png');
-        // Aquí irá la lógica de descarga cuando se integre con el backend
+        // TODO: Implementar integración con backend para descarga
         return false;
     }
 
-    // Función para manejar la descarga del reporte
+    /**
+     * Maneja la descarga del reporte de planeación
+     * @returns {boolean} false - Para prevenir comportamiento por defecto
+     * @description
+     * Actualmente muestra una alerta, pero está preparado para
+     * integrarse con la funcionalidad de descarga del backend
+     */
     function descargarReporte() {
         alert('Descargando pdf');
-        // Aquí irá la lógica de descarga cuando se integre con el backend
+        // TODO: Implementar integración con backend para descarga
         return false;
     }
 
-    // Función para abrir la ventana de coaching
+    /**
+     * Abre la ventana de coaching en una nueva pestaña
+     * @returns {boolean} false - Para prevenir comportamiento por defecto
+     * @description
+     * Redirige al usuario a la página de coaching de Concepto21
+     */
     function abrirCoaching() {
         window.open('https://concepto21.com/coaching', '_blank');
         return false;
     }
 
-    // Objeto 'contenidos': Aquí definimos todo el HTML que se mostrará
+    /**
+     * Definición de contenidos dinámicos
+     * @type {Object}
+     * @description
+     * Este objeto contiene todo el HTML que se mostrará en el contenedor dinámico
+     * para cada sección. Los valores false indican que esa sección será manejada
+     * por una función específica en lugar de mostrar contenido estático.
+     */
     const contenidos = {
-        // Los botones de calendario, coaching y reporte ya no tienen contenido
-        // porque serán manejados directamente por sus funciones específicas
-        'calendario': false, // Indica que no debe mostrar contenido
-        'reporte-planeacion': false, // Indica que no debe mostrar contenido
-        'coaching': false, // Indica que no debe mostrar contenido
+        // Acciones especiales manejadas por funciones
+        'calendario': false,           // Manejado por descargarCalendario()
+        'reporte-planeacion': false,   // Manejado por descargarReporte()
+        'coaching': false,             // Manejado por abrirCoaching()
         
 
         'personalidad-liderazgo': `

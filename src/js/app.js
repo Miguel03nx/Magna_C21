@@ -1,87 +1,126 @@
 
+/**
+ * Módulo de autenticación y validación de formulario de login
+ * @description
+ * Este módulo maneja la validación del formulario de inicio de sesión,
+ * incluyendo la validación en tiempo real de los campos y el proceso
+ * de redirección después del login exitoso.
+ */
 
+/**
+ * Objeto que almacena los datos del usuario
+ * @type {Object}
+ * @property {string} usuario - ID o nombre de usuario
+ * @property {string} password - Contraseña del usuario
+ */
 const idUsuario = {
     usuario: '',
     password: ''
+};
+
+/**
+ * Referencias a elementos del DOM para el formulario de login
+ */
+const inputNombre = document.querySelector("#usuario");     // Campo de usuario
+const inputPassword = document.querySelector("#password");  // Campo de contraseña
+const formulario = document.querySelector('#formulariol');  // Formulario completo
+
+/**
+ * Referencia al botón de envío del formulario
+ * @type {HTMLButtonElement}
+ */
+const btnSubmit = document.querySelector('#formulario1 button[type="submit"]');
+
+/**
+ * Event Listeners para validación en tiempo real
+ * Se utiliza el evento 'blur' para validar cuando el campo pierde el foco
+ */
+inputNombre.addEventListener('blur', validar);    // Validación del campo de usuario
+inputPassword.addEventListener('blur', validar);   // Validación del campo de contraseña
+
+
+/**
+ * Valida los campos del formulario en tiempo real
+ * @param {Event} e - Evento de blur del campo
+ * @description
+ * Esta función:
+ * 1. Verifica que el campo no esté vacío
+ * 2. Muestra/oculta mensajes de error según corresponda
+ * 3. Actualiza el objeto idUsuario con los valores validados
+ * 4. Comprueba si todos los campos están completos
+ */
+function validar(e) {
+    if(e.target.value.trim() === '') {
+        mostrarAlerta('ID y contraseña necesaria', e.target.parentElement);
+        idUsuario[e.target.name] = '';
+        comprobarID();
+        return;
+    } 
+
+    // Limpiar cualquier mensaje de error previo
+    limpiarAlerta(e.target.parentElement);
+
+    // Actualizar el objeto idUsuario con el valor validado
+    idUsuario[e.target.name] = e.target.value.trim().toLowerCase();
+
+    // Verificar si todos los campos están completos
+    comprobarID();
 }
 
-// console.log(idUsuario)
+/**
+ * Muestra un mensaje de error en el formulario
+ * @param {string} mensaje - Texto del mensaje de error a mostrar
+ * @param {HTMLElement} referencia - Elemento del DOM donde se mostrará el error
+ * @description
+ * Esta función:
+ * 1. Limpia cualquier mensaje de error existente
+ * 2. Crea un nuevo elemento para el mensaje
+ * 3. Agrega las clases de estilo correspondientes
+ * 4. Inserta el mensaje en el DOM
+ */
+function mostrarAlerta(mensaje, referencia) {
+    limpiarAlerta(referencia);
 
-// ambos se pueden usar pero queryselector es mas actual que getelementbyId
-const inputNombre = document.querySelector("#usuario")
-const inputPassword = document.querySelector("#password")
-const formulario = document.querySelector('#formulariol')
+    const error = document.createElement('P');
+    error.textContent = mensaje;
+    error.classList.add('errorusuario');
+    referencia.appendChild(error);
+}   
 
-// seleccionando el boton 
-const btnSubmit = document.querySelector('#formulario1 button[type="submit"]')
-
-
-// asignando eventos 
-inputNombre.addEventListener('blur', validar) // blur es en tiempo real, en lugar del event 'click'
-
-inputPassword.addEventListener('blur', validar)
-
-
-// funcion de validar 
-    function validar(e){
-        // console.log(e.target.parentElement)
-        if(e.target.value.trim() === ''){
-            // para hacerlo mas dinamico puede ser con ` el ${e.target.id} para que tome como referencia el campo que se esta validando
-            mostrarAlerta('ID y contraseña necesaria', e.target.parentElement); // mandando llamar la funcion 
-            idUsuario[e.target.name] = '';
-            comprobarID();
-            return;
-        } 
-
-        limpiarAlerta(e.target.parentElement);
-
-        // Asignar los valores 
-        idUsuario[e.target.name] = e.target.value.trim().toLowerCase();
-        // console.log(idUsuario)
-
-        // comprobar ID usuario
-        comprobarID()
+/**
+ * Elimina mensajes de error existentes
+ * @param {HTMLElement} referencia - Elemento del DOM donde buscar alertas
+ * @description
+ * Busca y elimina cualquier mensaje de error existente en el elemento
+ * especificado para evitar la acumulación de mensajes
+ */
+function limpiarAlerta(referencia) {
+    const alerta = referencia.querySelector('.errorusuario');
+    if(alerta) {
+        alerta.remove();
     }
+}
 
- // funcion para mostrar alerta 
-    function mostrarAlerta(mensaje, referencia){ // mensaje se el parametro 
-        limpiarAlerta(referencia)
-
-        // generar alerta en HTML
-        const error = document.createElement('P');
-        error.textContent = mensaje; // aqui toma el argumento de la funcion (mensaje)
-        // se le pueden agregar aun mas clases tipo ('error, error2. clase3')
-        error.classList.add('errorusuario')
-
-        // inyectar el error al formulario 
-        // al formulario, agregale un hijo (appendchild) que seria el error 
-        // que es lo que se esta contruyendo arriba linea 27
-        referencia.appendChild(error)
-
-    }   
-
-    function limpiarAlerta(referencia){
-         // poniendo 'referencia.queryselector' solo se va a limitar al campo del usuario y contraseña y el siguiente if ayudara a que solo se muestra la alerta 1 vez y no se llene de spam de alertas de error 
-        const alerta = referencia.querySelector('.errorusuario');
-        if(alerta){
-            alerta.remove();
-        }
-    }
-
-    function comprobarID(){
-        // esto va a ir llenando el array de includes y va a dar un false hasta que todos los campos este llenos
-        // console.log(Object.values(idUsuario).includes(''))
-        if(!Object.values(idUsuario).includes('')){
-            document.getElementById('formulariol').addEventListener('submit', function(e) {
-        e.preventDefault(); // Detiene el envío del formulario
-        // Aquí podrías validar usuario y contraseña si quieres
-        window.location.href = 'inicio.php'; // Redirige
+/**
+ * Verifica si todos los campos del formulario están completos
+ * @description
+ * Esta función:
+ * 1. Verifica si todos los campos requeridos tienen valor
+ * 2. Si están completos, configura el envío del formulario
+ * 3. Maneja la redirección después del login exitoso
+ */
+function comprobarID() {
+    if(!Object.values(idUsuario).includes('')) {
+        document.getElementById('formulariol').addEventListener('submit', function(e) {
+            e.preventDefault(); // Previene el envío por defecto
+            
+            // TODO: Agregar validación adicional de credenciales aquí
+            
+            // Redirección a la página de inicio
+            window.location.href = 'inicio.php';
         });
-        }else{
-                    // ESTO ES PARA QUE FUNCIONE EL BOTON DE MOMENTO 
-        
-        }
     }
+}
 
     
 
