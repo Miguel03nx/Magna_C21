@@ -26,7 +26,7 @@ class UsersController extends Controller {
 
         if ($name) {
             $this->userModel->createUser($name, $email, $password, $role);
-            header("Location: " . BASE_URL . "/users");
+            $this->redirect("/users");
             exit;
         } else {
             echo "Name is required.";
@@ -44,7 +44,7 @@ class UsersController extends Controller {
         $role = $_POST['role'] ?? 'user';
         if ($name) {
             $this->userModel->updateUser((int)$id, $name, $email, $role);
-            header("Location: " . BASE_URL . "/users");
+            $this->redirect("/users");
             exit;
         } else {
             echo "Name is required.";
@@ -53,7 +53,7 @@ class UsersController extends Controller {
 
     public function delete($id): void {
         $this->userModel->deleteUser((int)$id);
-        header("Location: " . BASE_URL . "/users");
+        $this->redirect("/users");
         exit;
     }
 
@@ -72,7 +72,7 @@ class UsersController extends Controller {
     
         $userId = $_SESSION['user_id'] ?? null;
         if (!$userId) {
-            header("Location: " . BASE_URL . "/auth/login");
+            $this->redirect("/auth/login");
             exit;
         }
     
@@ -84,6 +84,6 @@ class UsersController extends Controller {
         }
     
         $this->userModel->updateUserPassword($userId, $new);
-        echo "Password updated successfully.";
+        $this->redirect("/users");
     }
 }
