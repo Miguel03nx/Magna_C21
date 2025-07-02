@@ -2,6 +2,6 @@
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'magna');
 define('DB_USER', 'root');
-define('DB_PASS', 'rootpass');
+define('DB_PASS', '');
 
 define('BASE_URL', 'http://localhost:8000');
