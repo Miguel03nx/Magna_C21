@@ -10,9 +10,7 @@ Sistema web para la gestión de capacitación y desarrollo profesional, enfocado
 - MySQL/MariaDB
 - JavaScript (ES6+)
 - SASS/SCSS
-- AWS S3 (para almacenamiento)
 - Node.js y NPM (para desarrollo)
-- Gulp (para compilación de assets)
 
 ## Requisitos Previos
 1. PHP 7.4 o superior
@@ -51,6 +49,7 @@ npm run dev
 1. Iniciar el servidor PHP:
 ```bash
 php -S localhost:****
+php -S localhost:3000
 ```
 
 2. Observar cambios en SASS y JavaScript:
@@ -89,7 +88,6 @@ npm run dev
    - Evaluaciones por módulo
 
 4. **Integración con Servicios**
-   - AWS S3 para almacenamiento
    - Google Forms para evaluaciones
    - Sistema de foros
 
@@ -113,7 +111,7 @@ Los estilos utilizan SCSS con una estructura modular:
 ## Despliegue
 1. Compilar assets para producción:
 ```bash
-npm run build:prod
+# npm run build:prod
 ```
 
 2. Verificar configuración:
@@ -135,7 +133,6 @@ npm run build:prod
 - Optimizar consultas según sea necesario
 
 ### Archivos
-- Monitorear espacio en S3
 - Limpiar archivos temporales
 - Mantener logs organizados
 
@@ -145,7 +142,6 @@ npm run build:prod
 - [ ] Implementar sistema de notificaciones
 - [ ] Mejorar integración con Google Forms
 - [ ] Completar módulo de estadísticas
-- [ ] Optimizar carga de imágenes
 - [ ] Implementar caché de contenido
 
 
