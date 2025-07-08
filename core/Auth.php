@@ -19,7 +19,7 @@ function isLoggedIn(): bool {
 
 function hasRole(string|array $roles): bool {
     if (session_status() === PHP_SESSION_NONE) session_start();
-    $currentRole = $_SESSION['user_role'] ?? null;
+    $currentRole = $_SESSION['user_type'] ?? null;
 
     if (is_array($roles)) {
         return in_array($currentRole, $roles, true);

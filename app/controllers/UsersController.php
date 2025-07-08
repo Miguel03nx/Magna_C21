@@ -5,7 +5,7 @@ class UsersController extends Controller {
 
     public function __construct() {
         parent::__construct(true);
-        requireRole('Admin');
+        requireRole('admin');
         $this->userModel = $this->model('User');
     }
 
@@ -19,13 +19,14 @@ class UsersController extends Controller {
     }
 
     public function store(): void {
-        $name = $_POST['name'] ?? '';
+        $first_name = $_POST['first_name'] ?? '';
+        $last_name = $_POST['last_name'] ?? '';
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
-        $role = $_POST['role'] ?? 'user';
+        $user_type = $_POST['user_type'] ?? '';
 
-        if ($name) {
-            $this->userModel->createUser($name, $email, $password, $role);
+        if ($first_name && $last_name && $email && $password) {
+            $this->userModel->createUser($first_name, $last_name, $email, $password, $user_type);
             $this->redirect("/users");
             exit;
         } else {
@@ -39,11 +40,12 @@ class UsersController extends Controller {
     }
 
     public function update($id): void {
-        $name = $_POST['name'] ?? '';
+        $first_name = $_POST['first_name'] ?? '';
+        $last_name = $_POST['last_name'] ?? '';
         $email = $_POST['email'] ?? '';
-        $role = $_POST['role'] ?? 'user';
-        if ($name) {
-            $this->userModel->updateUser((int)$id, $name, $email, $role);
+        $user_type = $_POST['user_type'] ?? '';
+        if ($first_name && $last_name && $email && $user_type) {
+            $this->userModel->updateUser((int)$id, $first_name, $last_name, $email, $user_type);
             $this->redirect("/users");
             exit;
         } else {

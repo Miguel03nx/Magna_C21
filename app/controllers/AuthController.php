@@ -20,8 +20,8 @@ class AuthController extends Controller {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_role'] = $user['role'];
-            header("Location: " . BASE_URL . "/users");
+            $_SESSION['user_type'] = $user['user_type'];
+            $this->redirect('/users');
             exit;
         } else {
             echo "Invalid credentials.";
@@ -31,7 +31,7 @@ class AuthController extends Controller {
     public function logout(): void {
         session_start();
         session_destroy();
-        header("Location: " . BASE_URL . "/auth/login");
+        $this->redirect('/auth/login');
         exit;
     }
 }

@@ -18,16 +18,16 @@ class User {
         return $stmt->fetch();
     }
 
-    public function createUser(string $name, string $email, string $password, string $role): void {
+    public function createUser(string $first_name, string $last_name, string $email, string $password, string $user_type): void {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $this->db->query(
-            "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)",
-            [$name, $email, $hashedPassword, $role]
+            "INSERT INTO users (first_name, last_name, email, password, user_type) VALUES (?, ?, ?, ?, ?)",
+            [$first_name, $last_name, $email, $hashedPassword, $user_type]
         );
     }
 
-    public function updateUser(int $id, string $name, string $email, string $role): void {
-        $this->db->query("UPDATE users SET name = ?, email = ?, role = ? WHERE id = ?", [$name, $email, $role, $id]);
+    public function updateUser(int $id, string $first_name, string $last_name, string $email, string $user_type): void {
+        $this->db->query("UPDATE users SET first_name = ?, last_name = ?, email = ?, user_type = ? WHERE id = ?", [$first_name, $last_name, $email, $user_type, $id]);
     }
 
     public function deleteUser(int $id): void {

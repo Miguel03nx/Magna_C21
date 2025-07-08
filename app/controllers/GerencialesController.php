@@ -8,6 +8,7 @@ class GerencialesController extends Controller {
 
     public function index(){
         $cursos = $this->curso_Model->getAllCursos();
+                  // la carpeta y el archivo
         $this->view('gerenciales/index', ['cursos' => $cursos]);
     }
 }
