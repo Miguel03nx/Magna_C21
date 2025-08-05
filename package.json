@@ -5,8 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch src/scss:build/css",
-    "dev": "gulp"
+    "dev": "npx @tailwindcss/cli -i ./styles.css -o ./styles-1.css --watch"
   },
   "keywords": [
     "SASS",
@@ -15,9 +14,9 @@
   ],
   "author": "Miguel Ramirez",
   "license": "ISC",
-  "devDependencies": {
-    "gulp": "^5.0.0",
-    "gulp-sass": "^6.0.1",
-    "sass": "^1.87.0"
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "flowbite": "^3.1.2",
+    "tailwindcss": "^4.1.11"
   }
 }
