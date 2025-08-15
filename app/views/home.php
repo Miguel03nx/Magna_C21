@@ -29,5 +29,9 @@
     </ul>
 </div>
 
+<div>
+  <h1>home</h1>
+</div>
+
 </main>
 <?php require_once './app/views/layout/footer.php'; ?>

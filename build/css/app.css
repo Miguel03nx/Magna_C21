@@ -1397,3 +1397,11 @@ label {
 .concepto-opciones-botones .boton-concepto-opcion:hover {
   background: #fff500;
 }
+
+.login {
+  background-color: #695718;
+}
+
+.tituloh1login {
+  color: purple;
+}

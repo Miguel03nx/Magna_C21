@@ -1,0 +1,11 @@
+@use 'base/variables' as v;
+@forward 'base/globales';
+@use 'base/mixins' as m;
+
+.login{
+    background-color: #695718;
+}
+
+.tituloh1login{
+    color: purple;
+}
