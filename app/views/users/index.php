@@ -1,7 +1,7 @@
-<?php require_once './app/views/layout/header.php'; ?>
-<?php require_once './app/views/layout/sidebar.php'; ?>
+<?php require_once './app/views/layout/app_start.php'; ?>
 
-<main>
+
+
     <h1>User List</h1>
     <a href="/users/create">Add User</a>
     <ul>
@@ -15,5 +15,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
-</main>
-<?php require_once './app/views/layout/footer.php'; ?>
+
+<?php require_once './app/views/layout/app_end.php'; ?>

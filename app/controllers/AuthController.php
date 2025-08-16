@@ -21,7 +21,9 @@ class AuthController extends Controller {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_type'] = $user['user_type'];
-            $this->redirect('/users');
+            $_SESSION['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
+            $_SESSION['user_email'] = $user['email'];
+            $this->redirect('/');
             exit;
         } else {
             echo "Invalid credentials.";

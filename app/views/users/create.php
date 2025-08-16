@@ -1,3 +1,6 @@
+
+<?php require_once './app/views/layout/app_start.php'; ?>
+
 <h1>Create User</h1>
 <form method="POST" action="<?= BASE_URL ?>/users/store">
     <input type="text" name="first_name" required placeholder="Name">
@@ -11,3 +14,6 @@
     </select>
     <button type="submit">Create</button>
 </form>
+
+
+<?php require_once './app/views/layout/app_end.php'; ?>

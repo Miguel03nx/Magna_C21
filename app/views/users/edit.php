@@ -1,3 +1,6 @@
+
+<?php require_once './app/views/layout/app_start.php'; ?>
+
 <h1>Edit User</h1>
 <form method="POST" action="<?= BASE_URL ?>/users/update/<?= $data['user']['id'] ?>">
     <input type="text" name="first_name" value="<?= htmlspecialchars($data['user']['first_name']) ?>" required>
@@ -10,3 +13,6 @@
     </select>
     <button type="submit">Update</button>
 </form>
+
+
+<?php require_once './app/views/layout/app_end.php'; ?>
